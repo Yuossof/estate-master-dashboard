@@ -5,7 +5,6 @@ import History from "@/components/shared/partials/widget/chart/history";
 import RadarChart from "@/components/shared/partials/widget/chart/radar-chart";
 
 // image import
-import Usa from "@/assets/images/flags/usa.svg";
 import Brasil from "@/assets/images/flags/bra.svg";
 import Japan from "@/assets/images/flags/japan.svg";
 import Italy from "@/assets/images/flags/italy.svg";
@@ -13,12 +12,6 @@ import India from "@/assets/images/flags/india.svg";
 import Earnings from "@/components/shared/partials/widget/chart/earnings.jsx";
 
 const country = [
-  {
-    name: "Usa",
-    flag: Usa,
-    count: "$6.41",
-    icon: "heroicons:arrow-small-up",
-  },
   {
     name: "Brazil",
     flag: Brasil,

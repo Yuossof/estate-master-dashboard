@@ -29,7 +29,6 @@ const ServiceCategoryDrawer = ({ isOpen, setIsDrawerOpen, onClose, serviceCatego
     return () => abort.abort()
   }, [serviceCategoryId])
 
-
   return (
     <AnimatePresence>
       {isOpen && (
