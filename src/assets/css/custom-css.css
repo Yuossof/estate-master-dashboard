@@ -1,0 +1,56 @@
+/* /* .c-focus {
+  outline: none; 
+  border: 1px solid #d1d5db; 
+} */
+
+.c-focus:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+/* Firefox / Chrome / Safari */
+.dark input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #111827 inset;
+  -webkit-text-fill-color: #ffffff;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Firefox */
+input:-moz-autofill {
+  box-shadow: 0 0 0px 1000px #011632 inset;
+  -moz-text-fill-color: #ffffff;
+}
+
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #241e46 #d9d9dedf;
+}
+
+/* Webkit Browsers (Chrome, Edge, Safari) */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #04044f;
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #262149;
+  border-radius: 8px;
+  border: 2px solid #e6f6fe;
+}
+
+
+/* 
+tr.dark\:bg-emerald-700 {
+  background-color: #047857 !important;
+} */
+tr>td {
+  background-color: transparent !important;
+}
