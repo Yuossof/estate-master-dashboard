@@ -6,10 +6,10 @@ import Logo from "@/assets/images/logo/logo.webp";
 const login = () => {
   return (
     <>
-      <div className=" grid w-full lg:h-full h-auto px-6 grow grid-cols-1 place-items-center pt-10 2xl:pt-0 z-[1000]">
-        <div className=" max-w-[416px] mx-auto w-full space-y-6">
+      <div className="h-full grid w-full px-6 grow grid-cols-1 place-items-center pt-10 2xl:pt-0 z-[1000] overflow-hidden">
+        <div className=" max-w-[416px] mx-auto w-full space-y-6 mb-9">
           {/* <CometCard show={false}> */}
-            <div className="bg-gray-50 dark:bg-gray-900 shadow-lg border dark:border-slate-700 border-slate-200 rounded-md py-3 lg:mt-0 mt-48 ">
+            <div className="bg-gray-50 dark:bg-gray-900 shadow-lg border dark:border-slate-700 border-slate-200 rounded-md py-3 pt-7">
               <div className="text-center">
                 <div className="h-[72px] w-[72px] mx-auto">
                   <Link to="/">
