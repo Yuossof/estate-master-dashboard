@@ -58,14 +58,14 @@ const Layout = () => {
 
         <MobileMenu
           className={`${width < breakpoints.xl && mobileMenu
-            ? "left-0 visible opacity-100  z-[9999]"
-            : "left-[-300px] invisible opacity-0  z-[-999] "
+            ? "left-0 visible opacity-100  z-[9999]  h-[100vh]"
+            : "left-[-300px] invisible opacity-0  z-[-999]"
             }`}
         />
         {/* mobile menu overlay*/}
         {width < breakpoints.xl && mobileMenu && (
           <div
-            className="overlay bg-gray-900/50 backdrop-filter backdrop-blur-sm opacity-100 fixed inset-0 z-[999] left-0 top-0 right-0 bottom-0  "
+            className="overlay bg-gray-900/50 backdrop-filter backdrop-blur-sm opacity-100 fixed inset-0 z-[9999]  h-[100vh] left-0 top-0 right-0 bottom-0  "
             onClick={() => setMobileMenu(false)}
           ></div>
         )}
