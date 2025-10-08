@@ -69,11 +69,11 @@ const EditServiceCategoryPage = () => {
 
             <Card>
                 <div className="mb-8 mt-2">
-                    <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
+                    <h1 className="md:text-2xl text-xl font-semibold text-gray-800 dark:text-gray-100">
                         Create Service Category
                     </h1>
-                    <p className="text-gray-600 text-sm dark:text-gray-400 mt-2">
-                        Add a new CIL
+                    <p className="text-gray-600 md:text-base text-[14px] dark:text-gray-400 mt-2">
+                        update your service category
                     </p>
                 </div>
 

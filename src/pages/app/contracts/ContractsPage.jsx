@@ -129,10 +129,10 @@ const ContractsPage = () => {
         {/* Page Header */}
         <div className="mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
           <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
-            Projects Management
+            Contracts Management
           </h1>
-          <p className="text-base text-gray-500 dark:text-gray-400 mt-1">
-            Browse, search, and manage registered projects
+          <p className="md:text-base text-[14px] text-gray-500 dark:text-gray-400 mt-1">
+            Browse, search, and manage registered contracts
           </p>
         </div>
 

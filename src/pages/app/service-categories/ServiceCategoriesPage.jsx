@@ -59,7 +59,7 @@ const ServiceCategoriesPage = () => {
           <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
             Service Categories
           </h1>
-          <p className="text-base text-gray-500 dark:text-gray-400 mt-1">
+          <p className="md:text-base text-[14px] text-gray-500 dark:text-gray-400 mt-1">
             Browse, search, and manage service categories
           </p>
         </div>
