@@ -65,7 +65,7 @@ const Layout = () => {
         {/* mobile menu overlay*/}
         {width < breakpoints.xl && mobileMenu && (
           <div
-            className="overlay bg-gray-900/50 backdrop-filter backdrop-blur-sm opacity-100 fixed inset-0 z-[999] left-0 top-0 right-0 bottom-0"
+            className="overlay bg-gray-900/50 backdrop-filter backdrop-blur-sm opacity-100 fixed inset-0 z-[999] left-0 top-0 right-0 bottom-0  "
             onClick={() => setMobileMenu(false)}
           ></div>
         )}
