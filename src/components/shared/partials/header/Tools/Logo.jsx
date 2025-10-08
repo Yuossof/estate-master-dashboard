@@ -7,7 +7,7 @@ const Logo = () => {
   return (
     <div>
       <Link to="/dashboard">
-          <img src={MobileLogo} alt="logo-2" className="w-11"/>
+          <img src={MobileLogo} alt="logo-2" className="w-11 h-11 rounded-md"/>
       </Link>
     </div>
   );
