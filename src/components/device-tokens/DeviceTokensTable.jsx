@@ -174,7 +174,7 @@ const DeviceTokensTable = ({ columns, deviceTokensRows = [], setDeviceTokensRows
                                                     className="dark:text-gray-400 text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer"
                                                 />
                                                 <Trash2 onClick={() => {
-                                                    return
+                                                    // return
                                                     setIsOpen(true)
                                                     setOptionId(row.id)
                                                 }} size={20} className="dark:text-gray-400 text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer" />
