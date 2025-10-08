@@ -45,7 +45,7 @@ const MobileMenu = ({ className = "custom-class" }) => {
   return (
     <div className={isSemiDark ? "dark" : ""}>
       <div
-        className={`${className} fixed top-0 h-full w-[280px] 
+        className={`${className} fixed top-0 h-full w-[280px] bottom-0
         bg-white dark:bg-gray-800/80
         backdrop-blur-md shadow-lg border-r border-gray-200 dark:border-gray-700
         transition-colors duration-300`}
