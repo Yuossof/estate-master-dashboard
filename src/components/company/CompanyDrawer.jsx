@@ -63,7 +63,7 @@ const CompanyDrawer = ({ isOpen, setIsDrawerOpen, onClose, data, loading }) => {
                         </div>
 
                         {/* Logo + Name */}
-                        <div className="flex items-start gap-4 py-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                        <div className="flex items-start gap-4 py-4 dark:px-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                           <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 flex-shrink-0">
                             {data?.logo?.[0] ? (
                               <img

@@ -17,6 +17,7 @@ import ContractsPage from "./pages/app/contracts/ContractsPage";
 import InvoicesPage from "./pages/app/invoices/InvoicesPage";
 import Login from "./pages/auth/login";
 import CreateRolePage from "./pages/app/roles/CreateRolePage";
+import CreateUnitPage from "./pages/app/units/CreateUnitPage";
 
 const CreateCompanyPage = lazy(() => import("./pages/app/companies/CreateCompanyPage"));
 const EditCompanyPage = lazy(() => import("./pages/app/companies/EditCompanyPage"));
@@ -278,6 +279,16 @@ function App() {
             element={
               <ProtectedRoute>
                 <UnitsPage />
+              </ProtectedRoute>
+            }
+          />
+
+          
+          <Route
+            path="units/create"
+            element={
+              <ProtectedRoute>
+                <CreateUnitPage />
               </ProtectedRoute>
             }
           />

@@ -29,6 +29,8 @@ const CompanyUsersPage = () => {
   const [refetch, setRefetch] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [selectedCompany, setSelectedCompany] = useState({ name: "", id: "" })
+  const [debouncedSearchKey, setDebouncedSearchKey] = useState("");
+
   // const [startDate, setStartDate] = useState(null);
   // const [endtDate, setEndtDate] = useState(null);
   const [companyRows, setCompanyRows] = useState([]);
@@ -50,6 +52,16 @@ const CompanyUsersPage = () => {
   }, [searchKeySelect]);
 
   useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchKey(searchKey);
+    }, 350);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchKey]);
+
+  useEffect(() => {
     const abort = new AbortController()
 
     const getCompanyUsers = async () => {
@@ -67,7 +79,7 @@ const CompanyUsersPage = () => {
 
     getCompanyUsers();
     return () => abort.abort()
-  }, [page, refetch, searchKey, selectedCompany.id]);
+  }, [page, refetch, debouncedSearchKey, selectedCompany.id]);
 
 
   useEffect(() => {

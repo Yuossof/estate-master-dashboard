@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { ListFilter, FileUp, Search } from "lucide-react";
+import { FileUp, Search } from "lucide-react";
 
 import Card from "../../../components/shared/ui/Card";
-import Select from "../../../components/shared/ui/Select";
-import DateRangePicker from "@/components/shared/ui/DateRangePicker";
+
 import Pagination from "@/components/Pagination";
 import TableSkeleton from "../../../components/shared/skeleton/TableSkeleton";
 import { getUsersService } from "../../../services/users";
@@ -18,15 +17,23 @@ const columns = [
 ];
 
 const UsersPage = () => {
-    const [startDate, setStartDate] = useState(null);
-    const [endtDate, setEndtDate] = useState(null);
-
     const [userRows, setUserRows] = useState([]);
     const [pagination, setPagination] = useState({});
     const [page, setPage] = useState(1);
     const [searchKey, setSearchKey] = useState("");
     const [refetch, setRefetch] = useState(false);
     const [isLoading, setIsLoading] = useState(false)
+    const [debouncedSearchKey, setDebouncedSearchKey] = useState("");
+
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            setDebouncedSearchKey(searchKey);
+        }, 350);
+
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [searchKey]);
 
     useEffect(() => {
         const abort = new AbortController()
@@ -48,7 +55,7 @@ const UsersPage = () => {
         getUsers();
 
         return () => abort.abort()
-    }, [page, refetch, searchKey]);
+    }, [page, refetch, debouncedSearchKey]);
 
     return (
         <div>
