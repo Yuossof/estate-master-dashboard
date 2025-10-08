@@ -7,7 +7,7 @@ import { CometCard } from "@/components/ui/comet-card";
 const login = () => {
   return (
     <>
-      <div className="h-full grid w-full grow grid-cols-1 place-items-center pt-10 2xl:pt-0 z-[1000]">
+      <div className="h-full grid w-full px-6 grow grid-cols-1 place-items-center pt-10 2xl:pt-0 z-[1000]">
         <div className=" max-w-[416px] mx-auto w-full space-y-6">
           <CometCard show={false}>
             <div className="bg-gray-50 dark:bg-gray-900 shadow-lg border dark:border-slate-700 border-slate-200 rounded-md py-3 pt-7">

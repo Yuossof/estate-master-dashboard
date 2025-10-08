@@ -54,7 +54,7 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4 bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
+    <form onSubmit={onSubmit} className="space-y-4  bg-gray-50 dark:bg-gray-900 p-3 rounded-lg">
       {/* Email */}
       <div className="flex flex-col">
         <label
