@@ -33,7 +33,6 @@ export const deleteInvoiceService = async (id) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };

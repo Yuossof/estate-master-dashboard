@@ -2,15 +2,16 @@
 import React, { useState } from 'react'
 import { Edit, Languages, Trash2 } from 'lucide-react';
 import Alert from "../shared/custom-ui/Alert"
-import { deleteCompanyService } from '../../services/company';
 import { Eye } from 'lucide-react';
 import TextCell from '../TextCell';
 import CompanyUserProfileDrawer from './CompanyUserProfileDrawer';
+import { deleteCompanyUserService } from '../../services/company-users';
 
 const CompanyUsersTable = ({ columns, companyUsersRows = [], setCommpanyUsersRows, setRefetch, refetch }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [isDrawerOpen, setIsDrawerOpen] = useState(false)
     const [userId, setUserId] = useState(null)
+    const [companyId, setCompanyId] = useState("")
     const [isLoading, setIsLoading] = useState(false)
 
     const [currentLang, setCurrentLang] = useState("en")
@@ -19,10 +20,12 @@ const CompanyUsersTable = ({ columns, companyUsersRows = [], setCommpanyUsersRow
         setCurrentLang(prev => prev === "en" ? "ar" : "en")
     }
 
-    const handleDeleteCompany = async () => {
+    const handleDeleteCompanyUser = async () => {
+        const formData = new FormData()
+        formData.append("company_id", companyId)
         try {
             setIsLoading(true)
-            const data = await deleteCompanyService(userId)
+            const data = await deleteCompanyUserService(userId,)
             setIsOpen(false)
 
             const newUserRows = companyUsersRows.filter((row) => row.id !== userId)
@@ -50,7 +53,7 @@ const CompanyUsersTable = ({ columns, companyUsersRows = [], setCommpanyUsersRow
             />
 
             <Alert
-                onConfirm={handleDeleteCompany}
+                onConfirm={handleDeleteCompanyUser}
                 onCancel={() => setIsOpen(false)}
                 isOpen={isOpen}
                 message={"Are you sure you want to delete this item?"}
@@ -143,6 +146,7 @@ const CompanyUsersTable = ({ columns, companyUsersRows = [], setCommpanyUsersRow
                                                 <Eye
                                                     onClick={() => {
                                                         setUserId(row.id)
+                                                        setCompanyId(row.company.id)
                                                         setIsDrawerOpen(true)
                                                     }}
                                                     size={20} className="dark:text-gray-400 text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer"

@@ -3,12 +3,12 @@ import React from 'react'
 import Input from '../shared/custom-ui/Input'
 import { Plus } from 'lucide-react'
 
-const CreateCompanyUserForm = ({ formData, setFormData, handleSubmit, errors, setErrors, isLoading }) => {
+const CreateRoleForm = ({ roleData, setRoleData, handleSubmit, errors, setErrors, isLoading }) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target
         setErrors(prev => ({ ...prev, [name]: "" }))
-        setFormData(prev => ({
+        setRoleData(prev => ({
             ...prev,
             [name]: value
         }))
@@ -26,38 +26,24 @@ const CreateCompanyUserForm = ({ formData, setFormData, handleSubmit, errors, se
                             placeholder="Name"
                             name="name"
                             id="name"
-                            value={formData.name}
+                            value={roleData.name}
                             onChange={handleChange}
                         />
                         {errors.name && <p className='text-[13px] text-red-500 mt-2 ml-1'>*{errors.name[0]}</p>}
                     </div>
 
-                    {/* Email */}
+                    {/* Name Arabic */}
                     <div className="flex flex-col min-w-[150px]">
-                        <label htmlFor="email" className="px-1 text-sm font-medium text-gray-700 dark:text-gray-200">Email</label>
+                        <label htmlFor="name_ar" className="px-1 text-sm font-medium text-gray-700 dark:text-gray-200">Name Arabic</label>
                         <Input
-                            type="email"
-                            placeholder="Email"
-                            name="email"
-                            id="email"
-                            value={formData.email}
+                            type="text"
+                            placeholder="Guard Name"
+                            name="guard_name"
+                            id="guard_name"
+                            value={roleData.guard_name}
                             onChange={handleChange}
                         />
-                        {errors.email && <p className='text-[13px] text-red-500 mt-2 ml-1'>*{errors.email[0]}</p>}
-                    </div>
-
-                    {/* Password */}
-                    <div className="flex flex-col min-w-[150px]">
-                        <label htmlFor="password" className="px-1 text-sm font-medium text-gray-700 dark:text-gray-200">Password</label>
-                        <Input
-                            type="password"
-                            placeholder="Password"
-                            name="password"
-                            id="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                        />
-                        {errors.password && <p className='text-[13px] text-red-500 mt-2 ml-1'>*{errors.password[0]}</p>}
+                        {errors.name_ar && <p className='text-[13px] text-red-500 mt-2 ml-1'>*{errors.name_ar[0]}</p>}
                     </div>
 
                 </div>
@@ -81,4 +67,4 @@ const CreateCompanyUserForm = ({ formData, setFormData, handleSubmit, errors, se
     )
 }
 
-export default CreateCompanyUserForm
+export default CreateRoleForm

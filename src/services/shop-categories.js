@@ -13,10 +13,8 @@ export const createShopCategoryService = async (formData) => {
                 Authorization: `Bearer ${token}`
             }
         });
-        console.log("shopc", response.data)
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };  
@@ -35,7 +33,6 @@ export const updateShopCategoryService = async (formData, id) => {
         });
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };
@@ -69,10 +66,8 @@ export const deleteShopCategoryService = async (id) => {
                 Authorization: `Bearer ${token}`
             }
         });
-        console.log("data", response.data)
         return response.data;
     } catch (error) {
-        console.log("delete error:", error);
         handleApiError(error);
     }
 };

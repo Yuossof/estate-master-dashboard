@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { getCompaniesService } from "../../../services/company";
 import { createCompanyUserService } from "../../../services/company-users";
 import CreateCompanyUserForm from "../../../components/company-users/CreateCompanyUserForm";
+import { getRolesService } from "../../../services/roles";
 
 const defaultFormData = {
     name: "",
@@ -16,7 +17,7 @@ const defaultFormData = {
 
 const CreateCompanyUserPage = () => {
     const navigate = useNavigate();
-    const [formData, setFormData] = useState(defaultFormData);
+    const [companyUserRows, setCommpanyUsersRows] = useState(defaultFormData);
     const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState({});
     const [companyRows, setCompanyRows] = useState([]);
@@ -28,12 +29,20 @@ const CreateCompanyUserPage = () => {
     const [debouncedSearchKeySelect, setDebouncedSearchKeySelect] = useState("");
     const optionBoxRef = useRef(null);
 
+    const [roleRows, setRoleRows] = useState([]);
+    const [hasMoreRoles, setHasMoreRoles] = useState(true);
+    const [isFetchRoleLoading, setIsFetchRoleLoading] = useState(false);
+    const [rolePage, setRolePage] = useState(1);
+    const [selectedRole, setSelectedRole] = useState({});
+    const [searchKeyRoleSelect, setSearchKeyRoleSelect] = useState("");
+    const [debouncedSearchKeyRoleSelect, setDebouncedSearchKeyRoleSelect] = useState("");
+
     useEffect(() => {
         const getCompanies = async () => {
             if (!hasMoreCompanies) return;
             try {
                 setIsFetchCompanyLoading(true);
-                const data = await getCompaniesService(7, companyPage, debouncedSearchKeySelect);
+                const data = await getCompaniesService(11, companyPage, debouncedSearchKeySelect);
                 const items = data.data.items || [];
 
                 if (items.length === 0) {
@@ -63,6 +72,55 @@ const CreateCompanyUserPage = () => {
 
     useEffect(() => {
         const handler = setTimeout(() => {
+            setDebouncedSearchKeyRoleSelect(searchKeyRoleSelect);
+        }, 350);
+
+        return () => clearTimeout(handler);
+    }, [searchKeyRoleSelect]);
+
+    useEffect(() => {
+        setRolePage(1);
+        setRoleRows([]);
+        setHasMoreRoles(true);
+    }, [debouncedSearchKeyRoleSelect]);
+
+    const loadMoreRoles = () => {
+        if (!hasMoreRoles) return;
+        setRolePage(prev => prev + 1);
+    };
+
+    useEffect(() => {
+        const getRoles = async () => {
+            if (!hasMoreRoles) return;
+            try {
+                setIsFetchRoleLoading(true);
+                const data = await getRolesService(11, rolePage, debouncedSearchKeyRoleSelect);
+                const items = data.data.items || [];
+
+                if (items.length === 0 || rolePage >= data.data.pagination.totalPages) {
+                    setHasMoreRoles(false);
+                }
+
+                setRoleRows(prev => [
+                    ...prev,
+                    ...items.map(item => ({
+                        id: item.id,
+                        name: item.name,
+                    }))
+                ]);
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setIsFetchRoleLoading(false);
+            }
+        };
+
+        getRoles();
+    }, [rolePage, debouncedSearchKeyRoleSelect]);
+
+
+    useEffect(() => {
+        const handler = setTimeout(() => {
             setDebouncedSearchKeySelect(searchKeySelect);
         }, 350);
 
@@ -85,35 +143,19 @@ const CreateCompanyUserPage = () => {
     const handleSubmit = async () => {
         try {
             const formdata = new FormData();
-
-            try {
-                formdata.append("name", formData.name);
-                formdata.append("email", formData.email);
-                formdata.append("password", formData.password);
-                formdata.append("company_id", selectedCompany.id);
-                formdata.append("role", formData.role);
-
-                setErrors({});
-            } catch (error) {
-                console.log("Validation error:", error);
-
-                if (error.inner) {
-                    const newErrors = {};
-                    error.inner.forEach((e) => {
-                        newErrors[e.path] = e.message;
-                    });
-                    console.log("Parsed errors:", newErrors);
-                    setErrors(newErrors);
-                }
-                return;
-            }
+            formdata.append("name", companyUserRows.name);
+            formdata.append("email", companyUserRows.email);
+            formdata.append("password", companyUserRows.password);
+            formdata.append("company_id", selectedCompany.id);
+            formdata.append("role", selectedRole.name);
+            setErrors({});
 
             setIsLoading(true);
             const data = await createCompanyUserService(formdata);
             toast.success(data.message || data.massage);
             navigate("/company-users");
         } catch (error) {
-            console.log("Error in handleSubmit:", error);
+            setErrors(error.errors)
         } finally {
             setIsLoading(false);
         }
@@ -152,12 +194,32 @@ const CreateCompanyUserPage = () => {
                                 noResultMessage={"No result"}
                             />
                         </div>
+                        <div className="w-full">
+                            <label
+                                htmlFor="clientName"
+                                className="px-1 text-sm font-medium text-gray-700 dark:text-gray-200"
+                            >
+                                Role
+                            </label>
+                            <Select
+                                searchKeySelect={searchKeyRoleSelect}
+                                onInputChange={(val) => setSearchKeyRoleSelect(val)}
+                                onChange={(val) => setSelectedRole(val)}
+                                onEndReached={loadMoreRoles}
+                                options={roleRows}
+                                value={selectedRole.name}
+                                isLoading={isFetchRoleLoading}
+                                optionBoxRef={optionBoxRef}
+                                noResultMessage={"No result"}
+                            />
+
+                        </div>
                     </div>
                 </div>
 
                 <CreateCompanyUserForm
-                    formData={formData}
-                    setFormData={setFormData}
+                    formData={companyUserRows}
+                    setFormData={setCommpanyUsersRows}
                     errors={errors}
                     setErrors={setErrors}
                     handleSubmit={handleSubmit}

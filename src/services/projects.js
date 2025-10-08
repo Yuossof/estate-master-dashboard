@@ -55,7 +55,6 @@ export const updateProjectService = async (formData, id) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };
@@ -70,7 +69,6 @@ export const deleteProjectService = async (id) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };

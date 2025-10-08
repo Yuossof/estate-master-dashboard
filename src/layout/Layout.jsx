@@ -12,6 +12,7 @@ import MobileMenu from "../components/shared/partials/sidebar/MobileMenu";
 import useMobileMenu from "@/hooks/useMobileMenu";
 import { ToastContainer } from "react-toastify";
 import { motion } from "framer-motion";
+import Spinner from "../components/Loading";
 // import { CustomCursor } from "../components/ui/PointerV2";
 const Layout = () => {
   const { width, breakpoints } = useWidth();
@@ -105,7 +106,7 @@ const Layout = () => {
                   duration: 0.5,
                 }}
               >
-                <Suspense fallback={<div>loading...</div>}>
+                <Suspense fallback={<div className="w-full h-full flex justify-center items-center"><Spinner /></div>}>
                   {<Outlet />}
                 </Suspense>
               </motion.div>

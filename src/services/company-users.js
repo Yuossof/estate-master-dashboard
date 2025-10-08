@@ -55,8 +55,21 @@ export const getCompanyUserService = async (userId, signal) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };
 
+export const deleteCompanyUserService = async (id, formData) => {
+    try {
+        const token = getCookieVal("token");
+        if (!token || !id) return;
+
+        const response = await axiosInstanace.delete(`/api/dashboard/company-accounts/${id}`, formData,{
+            headers: { Authorization: `Bearer ${token}` }
+        });
+
+        return response.data;
+    } catch (error) {
+        handleApiError(error);
+    }
+};

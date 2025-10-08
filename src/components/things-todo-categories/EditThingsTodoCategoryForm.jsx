@@ -2,6 +2,7 @@
 import React from 'react'
 import Input from '../shared/custom-ui/Input'
 import { Edit, Image } from 'lucide-react'
+import CancelButton from '../CancelButton'
 
 const EditThingsTodoCategoryForm = ({ thingsTodoCategoryData, setThingsTodoCategoryData, handleSubmit, errors, setErrors, isLoading }) => {
 
@@ -18,7 +19,7 @@ const EditThingsTodoCategoryForm = ({ thingsTodoCategoryData, setThingsTodoCateg
         <div className='mt-6'>
             <div className='flex flex-col gap-4'>
                 <div className='grid md:grid-cols-2 grid-cols-1 gap-4'>
-                    
+
                     <div className="flex flex-col min-w-[150px]">
                         <label htmlFor="name" className="px-1 text-sm font-medium text-gray-700 dark:text-gray-200">Name</label>
                         <Input
@@ -97,6 +98,7 @@ const EditThingsTodoCategoryForm = ({ thingsTodoCategoryData, setThingsTodoCateg
 
             {/* Submit Button */}
             <div className='mt-6 flex w-full md:justify-end'>
+                <CancelButton />
                 <button
                     disabled={isLoading}
                     style={{ opacity: isLoading ? "0.6" : "1" }}

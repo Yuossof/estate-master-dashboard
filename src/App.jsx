@@ -8,13 +8,20 @@ import { useAuth } from "./hooks/useAuth";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 
-const Dashboard = lazy(() => import("./pages/dashboard/index"));
+import Dashboard from "./pages/dashboard/index";
+import CompaniesPage from "./pages/app/companies/CompaniesPage";
+import UsersPage from "./pages/app/users/UsersPage";
+import RolesPage from "./pages/app/roles/RolesPage";
+import ProjectsPage from "./pages/app/projects/ProjectsPage";
+import ContractsPage from "./pages/app/contracts/ContractsPage";
+import InvoicesPage from "./pages/app/invoices/InvoicesPage";
+import Login from "./pages/auth/login";
+import CreateRolePage from "./pages/app/roles/CreateRolePage";
+
 const CreateCompanyPage = lazy(() => import("./pages/app/companies/CreateCompanyPage"));
-import CompaniesPage from "./pages/app/companies/CompaniesPage"
-import CreateContractPage from "./pages/app/contracts/CreateContractPage";
-import CreateCompanyUserPage from "./pages/app/company-users/CreateCompanyUserPage";
-const UsersPage = lazy(() => import("./pages/app/users/UsersPage"));
 const EditCompanyPage = lazy(() => import("./pages/app/companies/EditCompanyPage"));
+const CreateContractPage = lazy(() => import("./pages/app/contracts/CreateContractPage"));
+const CreateCompanyUserPage = lazy(() => import("./pages/app/company-users/CreateCompanyUserPage"));
 const CompanyUsersPage = lazy(() => import("./pages/app/company-users/CompanyUsersPage"));
 const ServiceCategoriesPage = lazy(() => import("./pages/app/service-categories/ServiceCategoriesPage"));
 const CreateServiceCategoryPage = lazy(() => import("./pages/app/service-categories/CreateServiceCategoryPage"));
@@ -30,14 +37,11 @@ const CreateThingsTodoCategoriesPage = lazy(() => import("./pages/app/things-tod
 const EditThingsTodoCategoryPage = lazy(() => import("./pages/app/things-todo-categories/EditThingsTodoCategoryPage"));
 const AllPointUsersPage = lazy(() => import("./pages/app/point-users/AllPointUsersPage"));
 const CreateProjectPage = lazy(() => import("./pages/app/projects/CreateProjectPage"));
-const ProjectsPage = lazy(() => import("./pages/app/projects/ProjectsPage"));
-const UnitsPage = lazy(() => import("./pages/app/units/UnitsPage"));
 const EditProjectPage = lazy(() => import("./pages/app/projects/EditProjectPage"));
+const UnitsPage = lazy(() => import("./pages/app/units/UnitsPage"));
 const DeviceTokensPage = lazy(() => import("./pages/app/device-tokens/DeviceTokensPage"));
-const ContractsPage = lazy(() => import("./pages/app/contracts/ContractsPage"));
-const InvoicesPage = lazy(() => import("./pages/app/invoices/InvoicesPage"));
-const Login = lazy(() => import("./pages/auth/login"));
 const Error = lazy(() => import("./pages/404"));
+
 
 function App() {
   const { user, isLoading } = useAuth();
@@ -310,6 +314,23 @@ function App() {
             element={
               <ProtectedRoute>
                 <DeviceTokensPage />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="roles"
+            element={
+              <ProtectedRoute>
+                <RolesPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="roles/create"
+            element={
+              <ProtectedRoute>
+                <CreateRolePage />
               </ProtectedRoute>
             }
           />

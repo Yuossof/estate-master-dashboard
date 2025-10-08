@@ -13,7 +13,6 @@ export const getDeviceTokensService = async (per_page, page, user_id, item_key, 
                 Authorization: `Bearer ${token}`
             }
         });
-        console.log(response.data)
         return response.data;
     } catch (error) {
         handleApiError(error);

@@ -17,13 +17,12 @@ export const createContractService = async (formData) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };
 
 export const getContractsService = async (per_page, page, srearchKey, company_id, signal) => {
-    if(!company_id) return
+    if (!company_id) return
     try {
         const token = getCookieVal("token");
         if (!token) return;
@@ -53,7 +52,6 @@ export const deleteContractService = async (id) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };

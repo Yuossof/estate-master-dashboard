@@ -34,10 +34,8 @@ export const getUserService = async (userId, signal) => {
             signal
         });
 
-        console.log("udata",response.data)
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };

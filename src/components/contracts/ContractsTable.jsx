@@ -44,7 +44,7 @@ const ContractsTable = ({
         } catch (error) {
             if (error instanceof ApiError) {
                 toast.error(error.errors);
-            } else { 
+            } else {
                 toast.error(DEFAULT_API_ERROR.errors);
             }
         } finally {
@@ -94,7 +94,8 @@ const ContractsTable = ({
                                 </tr>
                             </thead>
                             <tbody className="bg-white transition-all">
-                                {contractsRows.length > 0 &&
+                                {contractsRows.length > 0 ? (
+
                                     contractsRows.map((row, i) => (
                                         <tr
                                             key={i}
@@ -177,7 +178,17 @@ const ContractsTable = ({
                                                 </div>
                                             </td>
                                         </tr>
-                                    ))}
+                                    ))
+                                ) : (
+                                    <tr className='bg-blue-50 dark:bg-[#0f172af7]'>
+                                        <td
+                                            colSpan={10}
+                                            className="text-center py-4  text-gray-500 dark:text-gray-400 "
+                                        >
+                                            No results found
+                                        </td>
+                                    </tr>
+                                )}
                             </tbody>
                         </table>
                     </div>

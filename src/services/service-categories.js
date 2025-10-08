@@ -14,10 +14,8 @@ export const createServiceCategoryService = async (formData) => {
                 Authorization: `Bearer ${token}`
             }
         });
-        console.log("sc",response.data)
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };
@@ -72,7 +70,6 @@ export const updateServiceCategoryService = async (formData, id) => {
         console.log("sc",response.data)
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };

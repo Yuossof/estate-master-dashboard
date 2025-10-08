@@ -18,7 +18,6 @@ export const createThingsTodoCategoriesService = async (formData) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };
@@ -58,7 +57,6 @@ export const updateThingsTodoCategoriesService = async (formData,id) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };
@@ -78,7 +76,6 @@ export const deleteThingsTodoCategoriesService = async (id) => {
         console.log("data", response.data)
         return response.data;
     } catch (error) {
-        console.log("delete error:", error);
         handleApiError(error);
     }
 };

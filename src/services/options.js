@@ -16,7 +16,6 @@ export const createOptionService = async (formData) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };
@@ -51,7 +50,6 @@ export const deleteOptionService = async (id) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };

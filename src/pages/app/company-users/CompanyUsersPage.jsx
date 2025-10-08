@@ -77,7 +77,7 @@ const CompanyUsersPage = () => {
       if (!hasMoreCompanies) return;
       try {
         setIsFetchCompanyLoading(true)
-        const data = await getCompaniesService(7, companyPage, debouncedSearchKeySelect, abort.signal);
+        const data = await getCompaniesService(11, companyPage, debouncedSearchKeySelect, abort.signal);
         const items = data.data.items || [];
 
         if (items.length === 0) {

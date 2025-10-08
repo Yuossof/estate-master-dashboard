@@ -37,7 +37,6 @@ export const getPointUserService = async (userId, signal) => {
         });
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };

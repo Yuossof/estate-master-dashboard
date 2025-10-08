@@ -19,7 +19,6 @@ export const createCompanyService = async (formData) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };
@@ -40,7 +39,6 @@ export const updateCompanyService = async (id, formData) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };
@@ -57,7 +55,6 @@ export const getCompaniesService = async (per_page, page, srearchKey, signal) =>
             },
             signal
         });
-        console.log(response.data)
         return response.data;
     } catch (error) {
         handleApiError(error);
@@ -77,7 +74,6 @@ export const toggleActiveCompanyService = async (id, formData) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };
@@ -93,7 +89,6 @@ export const deleteCompanyService = async (id) => {
 
         return response.data;
     } catch (error) {
-        console.log(error)
         handleApiError(error);
     }
 };

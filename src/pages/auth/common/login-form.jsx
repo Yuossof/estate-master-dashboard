@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { ApiError } from "../../../lib/error";
 import useAuthStore from "../../../zustand/useAuthStore";
 import { Loader2 } from "lucide-react";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
   const { setToken, setUser } = useAuthStore();
@@ -39,8 +40,12 @@ const LoginForm = () => {
       setUser(data.data.user)
       navigate("/dashboard")
     } catch (error) {
+      console.log(error, "message")
       if (error instanceof ApiError) {
-        console.log(error.errors, "message")
+        if (error.status === 401) {
+          toast.error(error.errors)
+          return
+        }
         setErrors(error.errors)
       }
     } finally {

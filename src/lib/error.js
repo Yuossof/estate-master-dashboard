@@ -19,18 +19,27 @@ export const DEFAULT_API_ERROR = {
 
 
 export const handleApiError = (error) => {
+  console.log(error)
   let apiErr = { ...DEFAULT_API_ERROR };
 
+  const status = error.response?.status;
   if (isAxiosError(error)) {
-    const status = error.response?.status;
     const err = error.response?.data;
 
-    if ((err?.errors && Object.keys(err.errors).length > 0) || (err?.error && Object.keys(err.error).length > 0)) {
+    if(status === 401) {
+      apiErr.errors = err.message
+      apiErr.status = status
+    }
+
+    if ((err?.errors && Object.keys(err.errors).length > 0) || (err?.error && Object.keys(err.error).length > 0) && err.status_code !== 401) {
       apiErr.errors = err.errors || err.error;
       apiErr.status = status;
     } else {
-      apiErr = { ...DEFAULT_API_ERROR };
+      if(err.status_code !== 401) {
+        apiErr = { ...DEFAULT_API_ERROR };
+      }
     }
+
   } else {
     apiErr = { ...DEFAULT_API_ERROR };
   }
