@@ -17,6 +17,7 @@ const ShopCategoriesTable = ({ columns, shopCategoryRows = [], setShopCategoryRo
         try {
             setIsLoading(true)
             const data = await deleteShopCategoryService(shopCategoryId)
+            console.log("delete shop category result", data)
             setIsOpen(false)
 
             const newShopCategoryRow = shopCategoryRows.filter((row) => row.id !== shopCategoryId)
@@ -24,22 +25,17 @@ const ShopCategoriesTable = ({ columns, shopCategoryRows = [], setShopCategoryRo
             if (newShopCategoryRow.length === 0) {
                 setRefetch(!refetch);
             }
-            console.log("success data", data)
-            // toast.success(data.massage)
+
         } catch (error) {
-            console.log("caught error:", error);
-            console.log("is ApiError?", error instanceof ApiError);
-            console.log("error.constructor.name:", error.constructor.name);
             if (error instanceof ApiError) {
-                toast.error("wow", error.errors)
+                toast.error(error.errors)
             } else {
-                toast.error("wow2", DEFAULT_API_ERROR.errors)
+                toast.error(DEFAULT_API_ERROR.errors)
             }
         } finally {
             setIsLoading(false)
         }
     }
-
 
     const handleNavigate = (row) => {
         navigate("/shop-categories/edit", { state: { rowData: row } });

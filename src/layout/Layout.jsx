@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import {  Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "@/components/shared/partials/header";
 import Sidebar from "@/components/shared/partials/sidebar";
 import useWidth from "@/hooks/useWidth";
@@ -36,89 +36,87 @@ const Layout = () => {
   const [mobileMenu, setMobileMenu] = useMobileMenu();
   const location = useLocation();
 
+  return (
+    <>
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={localStorage.getItem("darkMode") === "true" ? "dark" : "light"}
+      />
+      <Header className={width > breakpoints.xl ? switchHeaderClass() : ""} />
+      {menuType === "vertical" && width > breakpoints.xl && !menuHidden && (
+        <Sidebar />
+      )}
 
-    return (
-      <>
-        <ToastContainer
-          position="top-right"
-          autoClose={4000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme={localStorage.getItem("darkMode") === "true" ? "dark" : "light"}
-        />
-        <Header className={width > breakpoints.xl ? switchHeaderClass() : ""} />
-        {menuType === "vertical" && width > breakpoints.xl && !menuHidden && (
-          <Sidebar />
-        )}
-
-        <MobileMenu
-          className={`${width < breakpoints.xl && mobileMenu
-            ? "left-0 visible opacity-100  z-[9999]  h-[100vh]"
-            : "left-[-300px] invisible opacity-0  z-[-999]"
-            }`}
-        />
-        {/* mobile menu overlay*/}
-        {width < breakpoints.xl && mobileMenu && (
-          <div
-            className="overlay bg-gray-900/50 backdrop-filter backdrop-blur-sm opacity-100 fixed inset-0 z-[999]  h-[100vh] left-0 top-0 right-0 bottom-0  "
-            onClick={() => setMobileMenu(false)}
-          ></div>
-        )}
-
+      <MobileMenu
+        className={`${width < breakpoints.xl && mobileMenu
+          ? "left-0 visible opacity-100  z-[9999]  h-[100vh]"
+          : "left-[-300px] invisible opacity-0  z-[-999]"
+          }`}
+      />
+      {/* mobile menu overlay*/}
+      {width < breakpoints.xl && mobileMenu && (
         <div
-          className={`content-wrapper transition-all duration-150 ${width > 1280 ? switchHeaderClass() : ""
-            }`}
-        >
-          {/* md:min-h-screen will h-full*/}
-          <div className="page-content   page-min-height  ">
-            <div
-              className={
-                contentWidth === "boxed" ? "container mx-auto" : "container-fluid"
-              }
+          className="overlay bg-gray-900/50 backdrop-filter backdrop-blur-sm opacity-100 fixed inset-0 z-[999]  h-[100vh] left-0 top-0 right-0 bottom-0  "
+          onClick={() => setMobileMenu(false)}
+        ></div>
+      )}
+
+      <div
+        className={`content-wrapper transition-all duration-150 ${width > 1280 ? switchHeaderClass() : ""
+          }`}
+      >
+        {/* md:min-h-screen will h-full*/}
+        <div className="page-content   page-min-height  ">
+          <div
+            className={
+              contentWidth === "boxed" ? "container mx-auto" : "container-fluid"
+            }
+          >
+            <motion.div
+              key={location.pathname}
+              initial="pageInitial"
+              animate="pageAnimate"
+              exit="pageExit"
+              variants={{
+                pageInitial: { 
+                  opacity: 0,
+                  y: 50,
+                },
+                pageAnimate: {
+                  opacity: 1,
+                  y: 0,
+                },
+                pageExit: {
+                  opacity: 0,
+                  y: -50,
+                },
+              }}
+              transition={{
+                type: "tween",
+                ease: "easeInOut",
+                duration: 0.5,
+              }}
             >
-              <motion.div
-                key={location.pathname}
-                initial="pageInitial"
-                animate="pageAnimate"
-                exit="pageExit"
-                variants={{
-                  pageInitial: {
-                    opacity: 0,
-                    y: 50,
-                  },
-                  pageAnimate: {
-                    opacity: 1,
-                    y: 0,
-                  },
-                  pageExit: {
-                    opacity: 0,
-                    y: -50,
-                  },
-                }}
-                transition={{
-                  type: "tween",
-                  ease: "easeInOut",
-                  duration: 0.5,
-                }}
-              >
-                <Suspense fallback={<div className="w-full h-full flex justify-center items-center"><Spinner /></div>}>
-                  {<Outlet />}
-                </Suspense>
-              </motion.div>
-            </div>
+              <Suspense fallback={<div className="w-full h-full flex justify-center items-center"><Spinner /></div>}>
+                {<Outlet />}
+              </Suspense>
+            </motion.div>
           </div>
         </div>
+      </div>
 
-        <Footer className={width > breakpoints.xl ? switchHeaderClass() : ""} />
-
-      </>
-    );
-  }
+      <Footer className={width > breakpoints.xl ? switchHeaderClass() : ""} />
+    </>
+  );
+}
 
 
 export default Layout;

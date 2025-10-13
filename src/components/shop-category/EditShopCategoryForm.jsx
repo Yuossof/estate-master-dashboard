@@ -47,7 +47,6 @@ const EditShopCategoryForm = ({ shopCategory, setShopCategory, handleSubmit, err
                         {errors.name_ar && <p className='text-[13px] text-red-500 mt-2 ml-1'>*{errors.name_ar}</p>}
                     </div>
 
-
                 </div>
             </div>
 
