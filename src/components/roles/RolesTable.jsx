@@ -41,7 +41,6 @@ const RolesTable = ({ columns, roleRows = [], setRoleRows, setRefetch, refetch }
         }
     }
 
-
     const handleNavigate = (row) => {
         navigate("/roles/edit", { state: { rowData: row } });
     }

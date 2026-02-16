@@ -41,3 +41,24 @@ export const getUserService = async (userId, signal) => {
 };
 
 
+
+
+// Update role
+export const updateUserRole = async (formData, user_id) => {
+    try {
+        const token = getCookieVal("token");
+        if (!token) return;
+
+        const response = await axiosInstanace.patch(`/api/dashboard/company-accounts/${user_id}/role`, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        return response.data;
+    } catch (error) {
+        console.log(error)
+        handleApiError(error);
+    }
+};

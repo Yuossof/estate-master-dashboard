@@ -90,6 +90,7 @@ const CompanyUsersPage = () => {
       try {
         setIsFetchCompanyLoading(true)
         const data = await getCompaniesService(11, companyPage, debouncedSearchKeySelect, abort.signal);
+        console.log(data)
         const items = data.data.items || [];
 
         if (items.length === 0) {

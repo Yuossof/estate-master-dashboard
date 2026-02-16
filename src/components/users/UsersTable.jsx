@@ -5,8 +5,10 @@ import Alert from "../shared/custom-ui/Alert"
 import { deleteCompanyService } from '../../services/company';
 import { Eye } from 'lucide-react';
 import UserProfileDrawer from './UserProfileDrawer';
+import { useNavigate } from 'react-router-dom';
 
 const UsersTable = ({ columns, userRows = [], setUserRows, setRefetch, refetch }) => {
+    const navigate = useNavigate()
     const [isOpen, setIsOpen] = useState(false)
     const [userId, setUserId] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
@@ -30,6 +32,13 @@ const UsersTable = ({ columns, userRows = [], setUserRows, setRefetch, refetch }
             setIsLoading(false)
         }
     }
+
+
+
+    const handleNavigate = (row) => {
+        navigate("/users/edit", { state: { rowData: row } });
+    }
+
 
     return (
         <>
@@ -85,12 +94,15 @@ const UsersTable = ({ columns, userRows = [], setUserRows, setRefetch, refetch }
                                             {row.email}
                                         </td>
                                         <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
-                                            {row.roles[0] ? row.roles[0] : "-"}
+                                            {row.roles ? row.roles[0] : "-"}
                                         </td>
 
                                         <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
                                             <div className="flex items-center gap-2">
-                                                <Edit size={20} className="dark:text-gray-400 text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer" />
+                                                <Edit
+                                                    onClick={() => handleNavigate({ role: row.roles[0] || [], user_id: row.id })}
+                                                    size={20}
+                                                    className="dark:text-gray-400 text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer" />
                                                 <Trash2 onClick={() => {
                                                     setIsOpen(true)
                                                     setUserId(row.id)

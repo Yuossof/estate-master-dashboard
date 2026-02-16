@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Checkbox from "../../components/shared/ui/Checkbox";
 import { Edit, Trash2, Loader2, Languages, Eye } from 'lucide-react';
 import Alert from "../shared/custom-ui/Alert"
@@ -24,28 +24,41 @@ const CompaniesTable = ({ columns, companyRows = [], setCompanyRows, setRefetch,
     const [companyData, setCompanyData] = useState(false)
 
     const handleToggleLang = () => {
+        console.log(currentLang)
         setCurrentLang(prev => prev === "en" ? "ar" : "en")
     }
 
     const handleToggleActive = async (id, val) => {
         const formdata = new FormData()
         formdata.append("active", val)
+
         try {
             setToggleLoadingId(id)
-            const data = await toggleActiveCompanyService(id, formdata)
+
+            const res = await toggleActiveCompanyService(id, formdata)
+            const newActive = res.data.active  
 
             setCompanyRows(prev =>
                 prev.map(row =>
-                    row.id === id ? { ...row, active: val } : row
+                    row.id === id
+                        ? {
+                            ...row,
+                            active_company: {
+                                ...row.active_company,
+                                active: newActive
+                            }
+                        }
+                        : row
                 )
             )
-            console.log(data)
+
         } catch (error) {
             console.log(error)
         } finally {
             setToggleLoadingId(null)
         }
-    };
+    }
+
 
     const handleDeleteCompany = async () => {
         try {
@@ -71,6 +84,8 @@ const CompaniesTable = ({ columns, companyRows = [], setCompanyRows, setRefetch,
             setIsLoading(false)
         }
     }
+
+    useEffect(() => { console.log(companyRows) }, [])
 
     const handleNavigate = (row) => {
         navigate("/companies/edit", { state: { rowData: row } });
@@ -177,8 +192,8 @@ const CompaniesTable = ({ columns, companyRows = [], setCompanyRows, setRefetch,
                                             ) : (
                                                 <Checkbox
                                                     value={row.id}
-                                                    checked={row.active === 1 || row.active === true}
-                                                    onChange={() => handleToggleActive(row.id, row.active === null ? 1 : row.active === 0 ? 1 : 0)}
+                                                    checked={row.active_company?.active === 1 || row.active_company?.active === true}
+                                                    onChange={() => handleToggleActive(row.id, row.active_company?.active === null ? 1 : row.active_company?.active === 0 ? 1 : 0)}
                                                 />
                                             )}
                                         </td>
@@ -197,7 +212,7 @@ const CompaniesTable = ({ columns, companyRows = [], setCompanyRows, setRefetch,
                                                 <Eye
                                                     onClick={() => {
                                                         console.log(row)
-                                                        
+
                                                         setCompanyData(row)
                                                         setIsDrawerOpen(true)
                                                     }}

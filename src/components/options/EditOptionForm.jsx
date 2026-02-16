@@ -11,7 +11,8 @@ const EditOptionForm = ({ options, setOptions, handleSubmit, errors, setErrors, 
         setErrors(prev => ({ ...prev, [name]: "" }))
         setOptions(prev => ({
             ...prev,
-            [name]: value
+            [name]: value,
+            item_value_ar: "hellllo"
         }))
     }
 
@@ -42,7 +43,7 @@ const EditOptionForm = ({ options, setOptions, handleSubmit, errors, setErrors, 
                             placeholder="Item Value"
                             name="item_value"
                             id="item_value"
-                            value={options.name}
+                            value={options.item_value}
                             onChange={handleChange}
                         />
                         {errors.item_value && <p className='text-[13px] text-red-500 mt-2 ml-1'>*{errors.item_value}</p>}

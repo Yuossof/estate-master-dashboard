@@ -18,6 +18,7 @@ import InvoicesPage from "./pages/app/invoices/InvoicesPage";
 import Login from "./pages/auth/login";
 import CreateRolePage from "./pages/app/roles/CreateRolePage";
 import CreateUnitPage from "./pages/app/units/CreateUnitPage";
+import EditUsersRolePage from "./pages/app/users/EditUsersRolePage";
 
 const CreateCompanyPage = lazy(() => import("./pages/app/companies/CreateCompanyPage"));
 const EditCompanyPage = lazy(() => import("./pages/app/companies/EditCompanyPage"));
@@ -131,6 +132,14 @@ function App() {
             }
           />
 
+          <Route
+            path="users/edit"
+            element={
+              <ProtectedRoute>
+                <EditUsersRolePage />
+              </ProtectedRoute>
+            }
+          />
 
           <Route
             path="service-categories"
