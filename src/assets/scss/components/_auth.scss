@@ -13,5 +13,5 @@
 }
 
 .auth-box {
-  @apply rounded-lg bg-white dark:bg-gray-800  shadow-base;
+  @apply rounded-lg bg-white dark:bg-[var(--surface-card)]  shadow-base;
 }

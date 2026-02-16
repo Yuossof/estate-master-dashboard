@@ -14,7 +14,7 @@
     a,
     div,
     .page-link {
-      @apply bg-gray-100 dark:bg-gray-700 dark:text-gray-400 text-gray-900 text-sm font-normal rounded flex h-6 w-6 items-center justify-center transition-all duration-150;
+      @apply bg-gray-100 dark:bg-[var(--surface-elevated)] dark:text-gray-400 text-gray-900 text-sm font-normal rounded flex h-6 w-6 items-center justify-center transition-all duration-150;
       &.active {
         @apply bg-indigo-500  text-white font-medium;
       }

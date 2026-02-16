@@ -29,13 +29,13 @@ const Settings = () => {
       <div
         className={`
         setting-wrapper fixed ltr:right-0 rtl:left-0 top-0 md:w-[400px] w-[300px] z-[9999]
-         bg-white dark:bg-gray-800 h-screen   md:pb-6 pb-[100px] shadow-base2
-          dark:shadow-base3 border border-gray-200 dark:border-gray-700 
+         bg-white dark:bg-[var(--surface-card)] h-screen   md:pb-6 pb-[100px] shadow-base2
+          dark:shadow-base3 border border-gray-200 dark:border-[var(--border-primary)] 
           ${isOpen ? "ml-0 " : " ml-[-400px]"}
         `}
       >
         <SimpleBar className="px-6 h-full">
-          <header className="flex items-center justify-between border-b border-gray-100 dark:border-gray-700 -mx-5 px-6 py-[15px] mb-6">
+          <header className="flex items-center justify-between border-b border-gray-100 dark:border-[var(--border-primary)] -mx-5 px-6 py-[15px] mb-6">
             <div>
               <span className="block text-xl text-gray-900 font-medium dark:text-[#eee]">
                 Theme customizer
@@ -62,7 +62,7 @@ const Settings = () => {
             </div>
             {/* hr start */}
             <div>
-              <hr className="-mx-5 border-gray-200 dark:border-gray-700" />
+              <hr className="-mx-5 border-gray-200 dark:border-[var(--border-primary)]" />
             </div>
             {/* switch start */}
 
@@ -71,7 +71,7 @@ const Settings = () => {
             </div>
             {/* hr start */}
             <div>
-              <hr className="-mx-5 border-gray-200 dark:border-gray-700" />
+              <hr className="-mx-5 border-gray-200 dark:border-[var(--border-primary)]" />
             </div>
             {/* content width start */}
             <div>

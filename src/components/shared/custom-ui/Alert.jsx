@@ -18,13 +18,13 @@ const Alert = ({ message, isOpen, onConfirm, onCancel, confirmText = "Confirm", 
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.8, opacity: 0, y: -20 }}
                         transition={{ duration: 0.14 }}
-                        className="mt-10 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg w-[370px]"
+                        className="mt-10 bg-white dark:bg-[var(--surface-card)] p-4 rounded-lg shadow-lg w-[370px]"
                     >
                         <p className="text-gray-800 mx-2 dark:text-gray-100 mb-6">{message}</p>
                         <div className="flex justify-end gap-2">
                             <button
                                 onClick={onCancel}
-                                className="px-3 py-1.5 rounded-md dark:bg-gray-700 bg-gray-200 dark:text-gray-200 text-gray-700 hover:bg-gray-300 transition"
+                                className="px-3 py-1.5 rounded-md dark:bg-[var(--surface-elevated)] bg-gray-200 dark:text-gray-200 text-gray-700 hover:bg-gray-300 transition"
                             >
                                 {cancelText}
                             </button>

@@ -41,7 +41,7 @@ const Timeline = () => {
         <li
           key={i}
           className="pb-4 relative before:absolute before:inset-0 before:w-[1.5px] before:translate-x-[5px] 
-          before:bg-gray-200 before:dark:bg-gray-700  flex flex-1
+          before:bg-gray-200 before:dark:bg-[var(--surface-elevated)]  flex flex-1
           timeline-item last:before:h-1/2
           "
         >

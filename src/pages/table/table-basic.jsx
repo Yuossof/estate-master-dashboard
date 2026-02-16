@@ -59,7 +59,7 @@ const BasicTablePage = () => {
                     ))}
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-100 dark:bg-gray-800 dark:divide-gray-700">
+                <tbody className="bg-white divide-y divide-gray-100 dark:bg-[var(--surface-card)] dark:divide-gray-700">
                   {rows.map((row, i) => (
                     <tr key={i}>
                       <td className="table-td">{row.id}</td>
@@ -79,7 +79,7 @@ const BasicTablePage = () => {
           <div className="inline-block min-w-full align-middle">
             <div className="overflow-hidden ">
               <table className="min-w-full divide-y divide-gray-100 table-fixed dark:divide-gray-700">
-                <thead className="bg-gray-100 dark:bg-gray-700">
+                <thead className="bg-gray-100 dark:bg-[var(--surface-elevated)]">
                   <tr>
                     {columns.map((column, i) => (
                       <th key={i} scope="col" className=" table-th ">
@@ -88,7 +88,7 @@ const BasicTablePage = () => {
                     ))}
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-100 dark:bg-gray-800 dark:divide-gray-700">
+                <tbody className="bg-white divide-y divide-gray-100 dark:bg-[var(--surface-card)] dark:divide-gray-700">
                   {rows.map((row, i) => (
                     <tr key={i}>
                       <td className="table-td">{row.id}</td>
@@ -118,7 +118,7 @@ const BasicTablePage = () => {
                     ))}
                   </tr>
                 </thead>
-                <tbody className="bg-white dark:bg-gray-800 ">
+                <tbody className="bg-white dark:bg-[var(--surface-card)] ">
                   {rows.map((row, i) => (
                     <tr key={i}>
                       <td className="table-td">{row.id}</td>
@@ -138,7 +138,7 @@ const BasicTablePage = () => {
           <div className="inline-block min-w-full align-middle">
             <div className="overflow-hidden ">
               <table className="min-w-full divide-y divide-gray-100 table-fixed dark:divide-gray-700">
-                <thead className="bg-gray-100 dark:bg-gray-700">
+                <thead className="bg-gray-100 dark:bg-[var(--surface-elevated)]">
                   <tr>
                     {columns.map((column, i) => (
                       <th key={i} scope="col" className=" table-th ">
@@ -147,7 +147,7 @@ const BasicTablePage = () => {
                     ))}
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-100 dark:bg-gray-800 dark:divide-gray-700">
+                <tbody className="bg-white divide-y divide-gray-100 dark:bg-[var(--surface-card)] dark:divide-gray-700">
                   {rows.map((row, i) => (
                     <tr
                       key={i}
@@ -170,7 +170,7 @@ const BasicTablePage = () => {
           <div className="inline-block min-w-full align-middle">
             <div className="overflow-hidden ">
               <table className="min-w-full divide-y divide-gray-100 table-fixed dark:divide-gray-700">
-                <thead className="bg-gray-100 dark:bg-gray-700">
+                <thead className="bg-gray-100 dark:bg-[var(--surface-elevated)]">
                   <tr>
                     {columns.map((column, i) => (
                       <th key={i} scope="col" className=" table-th ">
@@ -179,11 +179,11 @@ const BasicTablePage = () => {
                     ))}
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-100 dark:bg-gray-800 dark:divide-gray-700">
+                <tbody className="bg-white divide-y divide-gray-100 dark:bg-[var(--surface-card)] dark:divide-gray-700">
                   {rows.map((row, i) => (
                     <tr
                       key={i}
-                      className="hover:bg-gray-100 dark:hover:bg-gray-700 hover:bg-opacity-20"
+                      className="hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)] hover:bg-opacity-20"
                     >
                       <td className="table-td">{row.id}</td>
                       <td className="table-td">{row.name}</td>

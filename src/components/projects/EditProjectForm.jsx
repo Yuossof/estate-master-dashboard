@@ -276,7 +276,7 @@ const EditProjectForm = ({
           <div className="mt-2 flex flex-col items-center">
             <label
               htmlFor="project_logo"
-              className="flex flex-col items-center justify-center w-full h-32 px-3 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-md cursor-pointer hover:border-blue-500 dark:hover:border-sky-400 transition-colors"
+              className="flex flex-col items-center justify-center w-full h-32 px-3 border-2 border-dashed border-gray-300 dark:border-[var(--border-primary)] rounded-md cursor-pointer hover:border-blue-500 dark:hover:border-sky-400 transition-colors"
               aria-label="Upload project logo"
             >
               {logoPreview ? (
@@ -323,7 +323,7 @@ const EditProjectForm = ({
           <div className="mt-2 flex flex-col items-center">
             <label
               htmlFor="all_media"
-              className="flex flex-col items-center justify-center w-full min-h-[130px] px-3 py-2 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-md cursor-pointer hover:border-blue-500 dark:hover:border-sky-400 transition-colors"
+              className="flex flex-col items-center justify-center w-full min-h-[130px] px-3 py-2 border-2 border-dashed border-gray-300 dark:border-[var(--border-primary)] rounded-md cursor-pointer hover:border-blue-500 dark:hover:border-sky-400 transition-colors"
               aria-label="Upload media images"
             >
               {mediaPreviews.length > 0 ? (

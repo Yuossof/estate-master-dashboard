@@ -226,7 +226,7 @@ const UserTable2 = () => {
                 className="min-w-full divide-y divide-gray-100 table-fixed dark:divide-gray-700"
                 {...getTableProps}
               >
-                <thead className="bg-gray-100 dark:bg-gray-700 ">
+                <thead className="bg-gray-100 dark:bg-[var(--surface-elevated)] ">
                   {headerGroups.map((headerGroup) => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                       {headerGroup.headers.map((column) => (
@@ -251,7 +251,7 @@ const UserTable2 = () => {
                   ))}
                 </thead>
                 <tbody
-                  className="bg-white divide-y divide-gray-100 dark:bg-gray-800 dark:divide-gray-700"
+                  className="bg-white divide-y divide-gray-100 dark:bg-[var(--surface-card)] dark:divide-gray-700"
                   {...getTableBodyProps}
                 >
                   {page.map((row) => {
@@ -259,7 +259,7 @@ const UserTable2 = () => {
                     return (
                       <tr
                         {...row.getRowProps()}
-                        className="hover:bg-gray-100 dark:hover:bg-gray-700 hover:bg-opacity-30"
+                        className="hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)] hover:bg-opacity-30"
                       >
                         {row.cells.map((cell) => {
                           return (
@@ -324,7 +324,7 @@ const UserTable2 = () => {
                   className={` ${
                     pageIdx === pageIndex
                       ? "bg-indigo-500  text-white font-medium "
-                      : "bg-gray-100 dark:bg-gray-700 dark:text-gray-400 text-gray-900  font-normal  "
+                      : "bg-gray-100 dark:bg-[var(--surface-elevated)] dark:text-gray-400 text-gray-900  font-normal  "
                   }    text-sm rounded leading-[16px] flex h-6 w-6 items-center justify-center transition-all duration-150`}
                   onClick={() => gotoPage(pageIdx)}
                 >

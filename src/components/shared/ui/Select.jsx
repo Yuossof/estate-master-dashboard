@@ -50,9 +50,9 @@ const Select = ({ label,
             onClick={() => !isLoading && setIsDropdownOpen(!isDropdownOpen)} 
             disabled={isLoading} 
             className={`px-3 py-2 text-sm border w-full rounded-md flex items-center justify-between text-left 
-    bg-white dark:bg-gray-900 
-    border-gray-200 dark:border-gray-700 
-    shadow-sm hover:border-gray-300 dark:hover:border-gray-600
+    bg-white dark:bg-[var(--surface-elevated)] 
+    border-gray-200 dark:border-[var(--border-primary)] 
+    shadow-sm hover:border-gray-300 dark:hover:border-[var(--border-primary)]
     c-focus
     ${isLoading ? "opacity-60 cursor-not-allowed" : ""} 
   `}
@@ -75,8 +75,8 @@ const Select = ({ label,
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
                 transition={{ duration: 0.2, ease: "easeInOut" }}
-                className="absolute z-50 w-full mt-1 bg-white dark:bg-gray-900 
-                   border border-gray-200 dark:border-gray-700 
+                className="absolute z-50 w-full mt-1 bg-white dark:bg-[var(--surface-elevated)] 
+                   border border-gray-200 dark:border-[var(--border-primary)] 
                    rounded-sm shadow-md max-h-[320px] overflow-auto"
                 onScroll={handleScroll}
                 ref={optionBoxRef}
@@ -87,8 +87,8 @@ const Select = ({ label,
                     onChange={handleInputChange}
                     value={searchKeySelect}
                     placeholder="search..."
-                    className="w-full h-full outline-none border-b-[1px] dark:border-gray-700 border-gray-200 
-                       text-gray-800 dark:bg-slate-900 dark:text-gray-200 bg-gray-50 px-3 shadow-sm dark:shadow-lg"
+                    className="w-full h-full outline-none border-b-[1px] dark:border-[var(--border-primary)] border-gray-200 
+                       text-gray-800 dark:bg-[var(--surface-elevated)] dark:text-gray-200 bg-gray-50 px-3 shadow-sm dark:shadow-lg"
                   />
                 </div>
 
@@ -98,7 +98,7 @@ const Select = ({ label,
                     type="button"
                     onClick={() => handleSelect(option)}
                     className="w-full px-3 py-2 text-sm text-left 
-                       hover:bg-gray-100 dark:hover:bg-gray-800 transition-all
+                       hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)] transition-all
                        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                        text-gray-900 dark:text-gray-100"
                   >

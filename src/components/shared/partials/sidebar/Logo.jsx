@@ -3,47 +3,46 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useSidebar from "@/hooks/useSidebar";
 
-// import images
-// import MobileLogo from "@/assets/images/logo/logo-c.svg";
 import logo from "@/assets/images/logo/logo.webp";
-import { Menu } from "lucide-react";
+import { PanelLeftClose, PanelLeftOpen } from "lucide-react";
 
 const SidebarLogo = ({ menuHover }) => {
   const [collapsed, setMenuCollapsed] = useSidebar();
-  // semi dark
 
   return (
     <div
-      className={` logo-segment flex justify-between items-center bg-white dark:bg-gray-800 z-[9] py-6  px-4  
-      ${menuHover ? "logo-hovered" : ""}
-       
-      
-      `}
+      className={`logo-segment flex justify-between items-center bg-white dark:bg-[var(--surface-sidebar)] z-[9] h-[80px] px-4 border-b border-gray-100 dark:border-[var(--border-primary)] ${
+        menuHover ? "logo-hovered" : ""
+      }`}
     >
-      <Link to="/dashboard">
-        <div className="flex items-center space-x-2 rtl:space-x-reverse">
-          <div className="logo-icon h-[40px]">
-      
-              <img src={logo} alt="" className=" h-full" />
-       
-          </div>
-
-          {(!collapsed || menuHover) && (
-            <div>
-              <h1 className="text-[22px] font-medium  ">Estate master</h1>
-            </div>
-          )}
+      <Link to="/dashboard" className="flex items-center gap-3 min-w-0">
+        <div className="logo-icon h-[38px] w-[38px] flex-shrink-0">
+          <img
+            src={logo}
+            alt="Estate Master"
+            className="h-full w-full object-contain rounded-lg"
+          />
         </div>
+
+        {(!collapsed || menuHover) && (
+          <h1 className="text-lg font-semibold text-gray-800 dark:text-gray-100 truncate tracking-tight">
+            Estate Master
+          </h1>
+        )}
       </Link>
 
       {(!collapsed || menuHover) && (
-        <div
+        <button
           onClick={() => setMenuCollapsed(!collapsed)}
-          className={` dark:border-gray-700 rounded-full transition-all duration-150 cursor-pointer 
-          `}
+          className="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)] transition-all duration-200 flex-shrink-0"
+          title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
         >
-          <Menu />
-        </div>
+          {collapsed ? (
+            <PanelLeftOpen className="w-[18px] h-[18px]" />
+          ) : (
+            <PanelLeftClose className="w-[18px] h-[18px]" />
+          )}
+        </button>
       )}
     </div>
   );

@@ -63,10 +63,10 @@
 
   .fc-theme-standard td,
   .fc-theme-standard th {
-    @apply border-gray-100 dark:border-gray-700;
+    @apply border-gray-100 dark:border-[var(--border-primary)];
   }
   .fc-col-header-cell .fc-scrollgrid-sync-inner {
-    @apply bg-gray-50 dark:bg-gray-700  text-xs text-gray-500 dark:text-gray-300 font-normal py-3;
+    @apply bg-gray-50 dark:bg-[var(--surface-elevated)]  text-xs text-gray-500 dark:text-gray-300 font-normal py-3;
   }
   .fc-daygrid-day-top {
     @apply text-sm px-3 py-2  text-gray-900 dark:text-white font-normal;

@@ -57,13 +57,13 @@ const AllPointUsersDrawer = ({ isOpen, setIsDrawerOpen, onClose, userId }) => {
                         animate={{ x: 0 }}
                         exit={{ x: "100%" }}
                         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                        className="relative h-full w-full max-w-[600px] bg-white dark:bg-gray-900 shadow-2xl"
+                        className="relative h-full w-full max-w-[600px] bg-white dark:bg-[var(--surface-elevated)] shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Header */}
-                        <div className="sticky top-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex items-center justify-between">
+                        <div className="sticky top-0 bg-white dark:bg-[var(--surface-elevated)] border-b border-gray-200 dark:border-[var(--border-primary)] px-6 py-4 flex items-center justify-between">
                             <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">Profile Details</h2>
-                            <button onClick={onClose} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors">
+                            <button onClick={onClose} className="p-2 hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)] rounded-full transition-colors">
                                 <X className="w-5 h-5 text-gray-500 dark:text-gray-400" />
                             </button>
                         </div>
@@ -88,12 +88,12 @@ const AllPointUsersDrawer = ({ isOpen, setIsDrawerOpen, onClose, userId }) => {
                                     <div className="px-6 py-6 space-y-8">
                                         {/* User Section */}
                                         <div className="space-y-6">
-                                            <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-gray-700">
+                                            <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-[var(--border-primary)]">
                                                 <User className="w-5 h-5 text-blue-600" />
                                                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">User Information</h3>
                                             </div>
 
-                                            <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                            <div className="flex items-start gap-4 p-4 bg-gray-50 dark:bg-[var(--surface-card)] rounded-lg">
                                                 <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 flex-shrink-0">
                                                     {pointUser.user.profile_image ? (
                                                         <img
@@ -140,19 +140,19 @@ const AllPointUsersDrawer = ({ isOpen, setIsDrawerOpen, onClose, userId }) => {
 
                                         {/* Points Transaction Section */}
                                         <div className="space-y-6">
-                                            <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-gray-700">
+                                            <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-[var(--border-primary)]">
                                                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Points Transaction</h3>
                                             </div>
                                             <DetailCard label="Transaction ID" value={pointUser.id} />
                                             <DetailCard label="Points" value={pointUser.points} />
                                             <DetailCard label="Decrement" value={pointUser.decrement} />
                                             <DetailCard label="Created At" value={new Date(pointUser.created_at).toLocaleString()} />
-                                            <div className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+                                            <div className="p-4 bg-white dark:bg-[var(--surface-card)] border border-gray-200 dark:border-[var(--border-primary)] rounded-lg">
                                                 <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Description</h5>
                                                 <p className="text-sm text-gray-600 dark:text-gray-400">{pointUser.description}</p>
                                             </div>
                                             {pointUser.description_ar && (
-                                                <div className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+                                                <div className="p-4 bg-white dark:bg-[var(--surface-card)] border border-gray-200 dark:border-[var(--border-primary)] rounded-lg">
                                                     <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">الوصف بالعربية</h5>
                                                     <p className="text-sm text-gray-600 dark:text-gray-400">{pointUser.description_ar}</p>
                                                 </div>
@@ -172,7 +172,7 @@ const AllPointUsersDrawer = ({ isOpen, setIsDrawerOpen, onClose, userId }) => {
 
 /* Enhanced reusable DetailCard component with dark mode support */
 const DetailCard = ({ label, value, status }) => (
-    <div className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+    <div className="p-4 bg-white dark:bg-[var(--surface-card)] border border-gray-200 dark:border-[var(--border-primary)] rounded-lg">
         <div className="flex items-center justify-between">
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{label}</span>
             <div className="flex items-center gap-2">

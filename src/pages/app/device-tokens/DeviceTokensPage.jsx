@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FileUp, Search } from "lucide-react";
+import { FileUp, Search, Smartphone } from "lucide-react";
 
 import Card from "../../../components/shared/ui/Card";
 import Pagination from "@/components/Pagination";
@@ -8,6 +8,7 @@ import Select from "../../../components/shared/ui/Select";
 import { getDeviceTokensService } from "../../../services/device-tokens";
 import { getUsersService } from "../../../services/users";
 import DeviceTokensTable from "../../../components/device-tokens/DeviceTokensTable";
+import PageHeader from "../../../components/shared/custom-ui/TablesHeader";
 
 const columns = [
   { label: "ID" },
@@ -140,14 +141,12 @@ const DeviceTokensPage = () => {
         <div>
             <Card noborder>
                 {/* Page Header */}
-                <div className="mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
-                    <h1 className="md:text-2xl text-xl font-semibold text-gray-800 dark:text-gray-100">
-                        Device Tokens Management
-                    </h1>
-                    <p className="md:text-base text-[14px] text-gray-500 dark:text-gray-400 mt-1">
-                        Filter, search, and manage available device tokens
-                    </p>
-                </div>
+                <PageHeader
+                    title="Device Tokens"
+                    icon={<Smartphone size={22} />}
+                    total={pagination.total}
+                    entityName="device token"
+                />
 
                 {/* Filters */}
                 <div className="flex w-full md:items-center sm:items-end items-center mb-8 md:flex-row flex-col">
@@ -174,7 +173,7 @@ const DeviceTokensPage = () => {
                     </div>
                 </div>
 
-                <div className="h-[1px] w-full dark:bg-slate-600 bg-slate-200 my-3 mb-4"></div>
+                <div className="h-px w-full bg-gray-100 dark:bg-[var(--border-secondary)] my-3 mb-4"></div>
 
                 {/* Search + Export */}
                 <div className="flex justify-between w-full mb-5">
@@ -185,12 +184,12 @@ const DeviceTokensPage = () => {
                                 placeholder="Search..."
                                 value={searchKey}
                                 onChange={(e) => setSearchKey(e.target.value)}
-                                className="border dark:border-slate-600 border-slate-300 py-1 dark:bg-gray-900 px-2 pr-9 rounded-md w-full outline-none"
+                                className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-gray-200/80 dark:border-[var(--border-primary)] bg-gray-50/50 dark:bg-[var(--surface-elevated)] text-gray-700 dark:text-slate-200 placeholder-gray-400 dark:placeholder-slate-500 outline-none focus:border-indigo-300 dark:focus:border-indigo-500/50 focus:ring-2 focus:ring-indigo-500/10 transition-all"
                             />
-                            <Search className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-slate-500 w-4 h-4" />
                         </div>
                     </div>
-                    <button className="btn-danger ml-5 sm:ml-0 flex items-center gap-2 py-1.5 px-2 rounded-md">
+                    <button className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg border border-gray-200/80 dark:border-[var(--border-primary)] bg-white dark:bg-[var(--surface-elevated)] text-gray-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-[var(--surface-hover)] transition-colors flex-shrink-0">
                         <span className="sm:block hidden">Export</span>
                         <FileUp size={20} />
                     </button>

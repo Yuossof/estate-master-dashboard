@@ -66,13 +66,9 @@ const CreateThingsTodoCategoriesPage = () => {
             {/* Page Header */}
 
             <Card>
-                <div className="mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
-                    <h1 className="md:text-2xl text-xl font-semibold text-gray-800 dark:text-gray-100">
-                        Create Things Todo Category
-                    </h1>
-                    <p className="md:text-base text-[14px] text-gray-500 dark:text-gray-400 mt-1">
-                        Add a new things todo category
-                    </p>
+                <div className="mb-6">
+                    <h1 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Create Things Todo Category</h1>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Add a new things todo category</p>
                 </div>
 
                 <CreateThingsTodoCategoriesForm

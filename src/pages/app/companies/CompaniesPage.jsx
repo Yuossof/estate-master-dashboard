@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { FileUp, Search } from "lucide-react";
+import { FileUp, Search, Building2 } from "lucide-react";
 import { getCompaniesService } from "../../../services/company";
+import { useNavigate } from "react-router-dom";
 
 import Card from "../../../components/shared/ui/Card";
 import Pagination from "@/components/Pagination";
 import CompaniesTable from "@/components/company/CompaniesTable";
 import TableSkeleton from "../../../components/shared/skeleton/TableSkeleton";
+import PageHeader from "../../../components/shared/custom-ui/TablesHeader";
 
 const columns = [
   { label: "ID" },
@@ -19,6 +21,7 @@ const columns = [
 ];
 
 const CompaniesPage = () => {
+  const navigate = useNavigate();
   const [companyRows, setCompanyRows] = useState([]);
   const [pagination, setPagination] = useState({});
 
@@ -56,62 +59,68 @@ const CompaniesPage = () => {
   }, [page, refetch, debouncedSearchKey]);
 
   return (
-    <div>
-      <Card noborder>
-        {/* Page Header */}
-        <div className="mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
-          <h1 className="md:text-2xl text-xl font-semibold text-gray-800 dark:text-gray-100">
-            Companies Management
-          </h1>
-          <p className="md:text-base text-[15px] text-gray-500 dark:text-gray-400 mt-1">
-            Browse, search, and manage registered companies
-          </p>
-        </div>
+    <div className="space-y-6">
+      {/* Page Header */}
+      <PageHeader
+        title="Companies"
+        icon={<Building2 size={22} />}
+        total={pagination.total}
+        entityName="company"
+        actionLabel="Add Company"
+        onActionClick={() => navigate("/companies/create")}
+      />
 
-        {/* Search + Export */}
-        <div className="flex justify-between w-full mb-5">
-          <div className="flex items-center gap-2 overflow-hidden">
-            <div className="relative w-full">
-              <input
-                type="text"
-                placeholder="Search..."
-                value={searchKey}
-                onChange={(e) => setSearchKey(e.target.value)}
-                className="border dark:border-slate-600 border-slate-300 py-1 dark:bg-gray-900 px-2 pr-9 rounded-md w-full outline-none"
-              />
-              <Search className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
-            </div>
+
+      {/* Content Card */}
+      <Card noborder bodyClass="p-0">
+        {/* Toolbar */}
+        <div className="flex items-center justify-between gap-3 px-5 py-4 border-b border-gray-100 dark:border-[var(--border-secondary)]">
+          <div className="relative w-full max-w-sm">
+            <input
+              type="text"
+              placeholder="Search companies..."
+              value={searchKey}
+              onChange={(e) => setSearchKey(e.target.value)}
+              className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-gray-200/80 dark:border-[var(--border-primary)] bg-gray-50/50 dark:bg-[var(--surface-elevated)] text-gray-700 dark:text-slate-200 placeholder-gray-400 dark:placeholder-slate-500 outline-none focus:bg-white dark:focus:bg-[var(--surface-hover)] focus:border-indigo-300 dark:focus:border-indigo-500/50 focus:ring-2 focus:ring-indigo-500/10 transition-all"
+            />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-slate-500 w-4 h-4" />
           </div>
-          <button className="btn-danger ml-5 sm:ml-0 flex items-center gap-2 py-1.5 px-2 rounded-md">
-            <span className="sm:block hidden">Export</span>
-            <FileUp size={20} />
+          <button className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg border border-gray-200/80 dark:border-[var(--border-primary)] bg-white dark:bg-[var(--surface-elevated)] text-gray-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-[var(--surface-hover)] transition-colors flex-shrink-0">
+            <FileUp size={15} />
+            <span className="hidden sm:block">Export</span>
           </button>
         </div>
 
         {/* Table */}
-        {isLoading ? (
-          <TableSkeleton columns={columns} rows={12} />
-        ) : (
-          <CompaniesTable
-            columns={columns}
-            companyRows={companyRows}
-            setCompanyRows={setCompanyRows}
-            refetch={refetch}
-            setRefetch={setRefetch}
-          />
-        )}
-
-        {/* Pagination */}
-        <div className="my-4 w-full flex justify-center">
-          <Pagination
-            onPageChange={setPage}
-            pagination={pagination}
-            isLoading={isLoading}
-          />
+        <div className="px-5 py-4">
+          {isLoading ? (
+            <TableSkeleton columns={columns} rows={9} />
+          ) : (
+            <CompaniesTable
+              columns={columns}
+              companyRows={companyRows}
+              setCompanyRows={setCompanyRows}
+              refetch={refetch}
+              setRefetch={setRefetch}
+            />
+          )}
         </div>
+
+        {/* Footer: Pagination + Info */}
+        {!isLoading && pagination.last_page > 1 && (
+          <div className="flex items-center justify-between gap-4 px-5 py-3.5 border-t border-gray-100 dark:border-[var(--border-secondary)]">
+            <p className="text-xs text-gray-400 dark:text-slate-500 hidden sm:block">
+              Page {pagination.current_page} of {pagination.last_page}
+            </p>
+            <Pagination
+              onPageChange={setPage}
+              pagination={pagination}
+              isLoading={isLoading}
+            />
+          </div>
+        )}
       </Card>
     </div>
-  
   );
 };
 

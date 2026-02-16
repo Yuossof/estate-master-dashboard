@@ -35,17 +35,17 @@ const UnitDrawer = ({ isOpen, setIsDrawerOpen, onClose, data: unit }) => {
                         animate={{ x: 0 }}
                         exit={{ x: "100%" }}
                         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                        className="relative h-full w-full max-w-[600px] bg-white dark:bg-gray-900 shadow-2xl"
+                        className="relative h-full w-full max-w-[600px] bg-white dark:bg-[var(--surface-elevated)] shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Header */}
-                        <div className="sticky top-0 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-6 py-4 flex items-center justify-between">
+                        <div className="sticky top-0 bg-white dark:bg-[var(--surface-elevated)] border-b border-gray-200 dark:border-[var(--border-primary)] px-6 py-4 flex items-center justify-between">
                             <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                                 Unit Details
                             </h2>
                             <button
                                 onClick={onClose}
-                                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
+                                className="p-2 hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)] rounded-full transition-colors"
                             >
                                 <X className="w-5 h-5 text-gray-500 dark:text-gray-400" />
                             </button>
@@ -62,7 +62,7 @@ const UnitDrawer = ({ isOpen, setIsDrawerOpen, onClose, data: unit }) => {
                                     {/* Unit Info */}
                                     <div className="space-y-6">
                                         {/* Image + Name */}
-                                        <div className="flex items-start gap-4 py-4 dark:px-3.5 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                        <div className="flex items-start gap-4 py-4 dark:px-3.5 bg-gray-50 dark:bg-[var(--surface-card)] rounded-lg">
                                             <div className="w-16 h-16 rounded-lg overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 flex-shrink-0">
                                                 {unit.main_image ? (
                                                     <img
@@ -117,7 +117,7 @@ const UnitDrawer = ({ isOpen, setIsDrawerOpen, onClose, data: unit }) => {
 
                                             {/* Description */}
                                             {unit.description && (
-                                                <div className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+                                                <div className="p-4 bg-white dark:bg-[var(--surface-card)] border border-gray-200 dark:border-[var(--border-primary)] rounded-lg">
                                                     <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                                                         Description
                                                     </h5>
@@ -142,7 +142,7 @@ const UnitDrawer = ({ isOpen, setIsDrawerOpen, onClose, data: unit }) => {
 
 /* Reusable DetailCard */
 const DetailCard = ({ label, value, status, icon }) => (
-    <div className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+    <div className="p-4 bg-white dark:bg-[var(--surface-card)] border border-gray-200 dark:border-[var(--border-primary)] rounded-lg">
         <div className="flex items-center justify-between">
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-1">
                 {icon} {label}

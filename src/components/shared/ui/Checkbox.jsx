@@ -37,8 +37,8 @@ const Checkbox = ({
         inline-flex ltr:mr-3 rtl:ml-3 relative transition-all duration-200 group-hover:shadow-checkbox rounded
         ${
           checked
-            ? "bg-indigo-500 dark:bg-gray-700 border-indigo-500"
-            : "bg-gray-50 dark:bg-gray-600 dark:border-gray-600 border-gray-200"
+            ? "bg-indigo-500 dark:bg-[var(--surface-elevated)] border-indigo-500"
+            : "bg-gray-50 dark:bg-gray-600 dark:border-[var(--border-primary)] border-gray-200"
         }
         ${!checked ? "group-hover:bg-white dark:group-hover:bg-gray-500" : ""}
         ${disabled ? "opacity-50" : ""}`}

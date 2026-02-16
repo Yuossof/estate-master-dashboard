@@ -19,7 +19,7 @@ const SelectMonth = () => {
       <Dropdown
         classMenuItems=" w-[140px]"
         label={
-          <span className="text-lg inline-flex h-6 w-6 flex-col items-center justify-center border border-gray-200 dark:border-gray-700 rounded dark:text-gray-400">
+          <span className="text-lg inline-flex h-6 w-6 flex-col items-center justify-center border border-gray-200 dark:border-[var(--border-primary)] rounded dark:text-gray-400">
             <Icon icon="heroicons-outline:dots-horizontal" />
           </span>
         }

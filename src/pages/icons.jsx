@@ -129,7 +129,7 @@ const IconPage = () => {
         <li key={i}>
           <Tooltip placement="top" arrow content={item.name}>
             <div
-              className={`rounded-lg bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 text-xl  py-3 px-4 shadow-base `}
+              className={`rounded-lg bg-white dark:bg-[var(--surface-card)] text-gray-600 dark:text-gray-300 text-xl  py-3 px-4 shadow-base `}
             >
               <Icon icon={item.name} />
             </div>
@@ -140,7 +140,7 @@ const IconPage = () => {
         <a
           href="https://icon-sets.iconify.design"
           target="_blank"
-          className="btn btn-dark dark:bg-gray-700"
+          className="btn btn-dark dark:bg-[var(--surface-elevated)]"
         >
           View All iconify Icons
         </a>

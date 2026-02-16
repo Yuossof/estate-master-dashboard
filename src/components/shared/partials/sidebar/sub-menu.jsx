@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Collapse } from "react-collapse";
 import { NavLink } from "react-router-dom";
-import Icon from "@/components/shared/ui/Icon";
+import { ChevronRight } from "lucide-react";
 import Multilevel from "./multi-lavel";
 
 const Submenu = ({ activeSubmenu, item, i }) => {
@@ -19,18 +19,17 @@ const Submenu = ({ activeSubmenu, item, i }) => {
   function LockLink({ to, children, subItem }) {
     if (subItem.badge) {
       return (
-        <span className="text-sm flex space-x-3 items-center transition-all duration-150 cursor-not-allowed">
-          <span className="bg-gray-600 dark:bg-white h-2 w-2 rounded-full border inline-block flex-none"></span>
-          <div className="flex-1 dark:text-gray-300/60 text-gray-600/50">
+        <span className="text-[13px] flex items-center gap-3 transition-all duration-200 cursor-not-allowed py-1.5 px-3 rounded-md">
+          <span className="h-1.5 w-1.5 rounded-full bg-gray-300 dark:bg-gray-600 flex-none" />
+          <div className="flex-1 text-gray-400 dark:text-gray-500">
             {subItem.childtitle}
-            <span className="badge bg-cyan-500/10 text-cyan-500 py-1 ltr:ml-2 rtl:mr-2 rounded-full">
+            <span className="ml-2 text-[11px] font-medium px-1.5 py-0.5 rounded-full bg-cyan-50 text-cyan-600 dark:bg-cyan-900/30 dark:text-cyan-400">
               {subItem.badge}
             </span>
           </div>
         </span>
       );
     } else {
-      // استخدام end prop لضمان التطابق الدقيق
       return (
         <NavLink to={to} end>
           {children}
@@ -41,31 +40,27 @@ const Submenu = ({ activeSubmenu, item, i }) => {
 
   return (
     <Collapse isOpened={activeSubmenu === i}>
-      <ul className="sub-menu space-y-[14px] pl-8 pr-6">
+      <ul className="sub-menu relative ltr:ml-[22px] rtl:mr-[22px] ltr:pl-4 rtl:pr-4 ltr:border-l rtl:border-r border-gray-200 dark:border-[var(--border-primary)] mt-1 mb-1 space-y-0.5">
         {item.child?.map((subItem, j) => (
           <li
             key={j}
-            className="block relative first:pt-3 last:pb-3 capitalize"
+            className="block relative first:pt-1 last:pb-1 capitalize"
           >
             {subItem?.submenu ? (
               <div>
                 <div
-                  className="has-multilevel-menu text-sm flex space-x-3 items-center transition-all duration-150 cursor-pointer"
+                  className="has-multilevel-menu text-[13px] flex items-center gap-3 transition-all duration-200 cursor-pointer py-1.5 px-3 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700/30"
                   onClick={() => toggleMultiMenu(j)}
                 >
-                  <span className="flex-none h-2 w-2 rounded-full border inline-block bg-gray-600 dark:bg-white"></span>
-                  <span className="flex-1 text-gray-600 dark:text-gray-300">
+                  <span className="flex-none h-1.5 w-1.5 rounded-full bg-gray-400 dark:bg-gray-500" />
+                  <span className="flex-1 text-gray-600 dark:text-gray-400">
                     {subItem.childtitle}
                   </span>
-                  <span className="flex-none">
-                    <span
-                      className={`menu-arrow transform transition-all duration-300 ${
-                        activeMultiMenu === j ? " rotate-90" : ""
-                      }`}
-                    >
-                      <Icon icon="ph:caret-right" />
-                    </span>
-                  </span>
+                  <ChevronRight
+                    className={`w-3.5 h-3.5 transition-transform duration-300 ease-in-out ${
+                      activeMultiMenu === j ? "rotate-90" : ""
+                    }`}
+                  />
                 </div>
                 <Multilevel
                   activeMultiMenu={activeMultiMenu}
@@ -76,31 +71,28 @@ const Submenu = ({ activeSubmenu, item, i }) => {
             ) : (
               <LockLink to={subItem.childlink} subItem={subItem}>
                 {({ isActive }) => (
-                  <div>
-                    <div
-                      className={`${
+                  <div
+                    className={`text-[13px] flex items-center gap-3 transition-all duration-200 py-1.5 px-3 rounded-md ${
+                      isActive
+                        ? "text-indigo-600 dark:text-indigo-400 bg-indigo-50/80 dark:bg-indigo-500/10 font-medium"
+                        : "text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700/30"
+                    }`}
+                  >
+                    <span
+                      className={`h-1.5 w-1.5 rounded-full flex-none transition-colors duration-200 ${
                         isActive
-                          ? "text-indigo-500 dark:text-white"
-                          : "text-gray-600 dark:text-gray-300"
-                      } text-sm flex space-x-3 items-center transition-all duration-150`}
-                    >
-                      <span
-                        className={`${
-                          isActive
-                            ? "bg-indigo-500 dark:bg-gray-300"
-                            : "bg-gray-600 dark:bg-white"
-                        } h-2 w-2 rounded-full border inline-block flex-none`}
-                      ></span>
-                      <span className="flex-1">
-                        {subItem.childtitle}
-                        {subItem.badge && (
-                          <span className="badge bg-yellow-500/10 text-yellow-500 py-1 ltr:ml-2 rtl:mr-2 rounded-full">
-                            {subItem.badge}
-                            {".."}
-                          </span>
-                        )}
-                      </span>
-                    </div>
+                          ? "bg-indigo-500 dark:bg-indigo-400"
+                          : "bg-gray-300 dark:bg-gray-600"
+                      }`}
+                    />
+                    <span className="flex-1">
+                      {subItem.childtitle}
+                      {subItem.badge && (
+                        <span className="ml-2 text-[11px] font-medium px-1.5 py-0.5 rounded-full bg-amber-50 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400">
+                          {subItem.badge}
+                        </span>
+                      )}
+                    </span>
                   </div>
                 )}
               </LockLink>

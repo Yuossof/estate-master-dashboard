@@ -112,24 +112,22 @@ const UnitsTable = ({
                 isLoading={isLoading}
             />
 
-            <div className="overflow-x-auto">
-                <div className="inline-block min-w-full align-middle ">
-                    <div className="overflow-hidden ">
-                        <table className="min-w-full border border-gray-200 table-fixed dark:border-gray-600 border-collapse">
+            <div className="overflow-x-auto rounded-lg border border-gray-200/80 dark:border-[var(--border-primary)]">
+                        <table className="min-w-full">
                             <thead>
                                 <tr>
                                     {columns.map((column, i) => (
                                         <th
                                             key={i}
                                             scope="col"
-                                            className="table-th border border-gray-200 dark:bg-gray-800 dark:border-gray-600"
+                                            className="table-th"
                                         >
                                             <div className="flex items-center justify-between">
                                                 {column.label}
                                                 {column.label === "Description" && (
                                                     <div
                                                         onClick={handleToggleLang}
-                                                        className="bg-slate-100 dark:bg-gray-900 border-[1px] border-slate-200 dark:border-slate-500 w-8 h-8 cursor-pointer hover:shadow-lg hover:scale-110 active:-rotate-45 shadow-md rounded-full flex justify-center items-center transition-all duration-300"
+                                                        className="bg-slate-100 dark:bg-[var(--surface-elevated)] border-[1px] border-slate-200 dark:border-slate-500 w-8 h-8 cursor-pointer hover:shadow-lg hover:scale-110 active:-rotate-45 shadow-md rounded-full flex justify-center items-center transition-all duration-300"
                                                     >
                                                         <Languages
                                                             className="dark:text-gray-300 text-gray-600"
@@ -142,33 +140,33 @@ const UnitsTable = ({
                                     ))}
                                 </tr>
                             </thead>
-                            <tbody className="bg-white transition-all">
+                            <tbody className="bg-white dark:bg-transparent divide-y divide-gray-100 dark:divide-[var(--border-secondary)]">
                                 {unitsRows.length > 0 &&
                                     unitsRows.map((row, i) => (
                                         <tr
                                             key={i}
                                             className={`align-top ${i % 2 !== 0
-                                                ? "bg-blue-50 dark:bg-[#0f172aef]"
-                                                : "bg-white dark:bg-[#0f172af7]"
+                                                ? "bg-gray-50/50 dark:bg-[var(--surface-zebra)]"
+                                                : "bg-white dark:bg-transparent"
                                                 }`}
                                         >
                                             {/* ID */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.id}
                                             </td>
 
                                             {/* Name */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.name}
                                             </td>
 
                                             {/* Image */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.main_image ? (
                                                     <img
                                                         src={row.main_image}
                                                         alt={`${row.name} logo`}
-                                                        className="w-10 h-10 object-contain cursor-pointer hover:scale-110 transition-all active:scale-100 rounded-md border border-gray-200 dark:border-gray-600"
+                                                        className="w-10 h-10 object-contain cursor-pointer hover:scale-110 transition-all active:scale-100 rounded-md border border-gray-200 dark:border-[var(--border-primary)]"
                                                         onClick={() => {
                                                             setIsImagePreview(true);
                                                             setImageUrl(row.main_image);
@@ -182,55 +180,55 @@ const UnitsTable = ({
                                             </td>
 
                                             {/* Location */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 <ExpandableText text={row.location} />
                                             </td>
 
                                             {/* Phone */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.phone_number}
                                             </td>
 
                                             {/* WhatsApp */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.whatsapp_number}
                                             </td>
 
                                             {/* Delivery Date */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.delivery_date}
                                             </td>
 
                                             {/* Area */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.area} m²
                                             </td>
 
                                             {/* Price */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.price} EGP
                                             </td>
 
                                             {/* Rooms */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.rooms}
                                             </td>
 
                                             {/* Bathrooms */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.bathrooms}
                                             </td>
 
                                             {/* Floor */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.floor}
                                             </td>
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.all_media ? (
                                                     <img
                                                         src={row.all_media[0]}
                                                         alt={`${row.name} media`}
-                                                        className="w-10 h-10 object-contain cursor-pointer hover:scale-110 transition-all active:scale-100 rounded-md border border-gray-200 dark:border-gray-600"
+                                                        className="w-10 h-10 object-contain cursor-pointer hover:scale-110 transition-all active:scale-100 rounded-md border border-gray-200 dark:border-[var(--border-primary)]"
                                                         onClick={() => {
                                                             setImagesPreviewData(row.all_media)
                                                             setIsMultiImagePreviewOpen(true)
@@ -241,7 +239,7 @@ const UnitsTable = ({
                                                 )}
                                             </td>
                                             {/* Active */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {toggleLoadingId === row.id ? (
                                                     <Loader2 className="w-4 h-4 dark:text-white text-gray-800 animate-spin" />
                                                 ) : (
@@ -259,7 +257,7 @@ const UnitsTable = ({
                                             </td>
 
                                             {/* Actions */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 <div className="flex items-center gap-2">
                                                     <Edit
                                                         onClick={() => handleNavigate(row)}
@@ -288,8 +286,6 @@ const UnitsTable = ({
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
         </>
     );
 };

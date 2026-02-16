@@ -24,13 +24,13 @@
     @apply bg-red-500 text-white;
   }
   .tippy-box[data-theme~="dark"] {
-    @apply bg-gray-700 text-white dark:bg-gray-900;
+    @apply bg-gray-700 text-white dark:bg-[var(--surface-elevated)];
   }
   .tippy-box[data-theme~="custom-light"] {
-    @apply bg-white text-gray-900 dark:bg-gray-700 shadow-dropdown dark:border-gray-700 dark:border;
+    @apply bg-white text-gray-900 dark:bg-gray-700 shadow-dropdown dark:border-[var(--border-primary)] dark:border;
   }
   .tippy-box[data-theme~="custom-light2"] {
-    @apply bg-white text-gray-900 dark:bg-gray-700 shadow-dropdown dark:border-gray-700 dark:border rounded;
+    @apply bg-white text-gray-900 dark:bg-gray-700 shadow-dropdown dark:border-[var(--border-primary)] dark:border rounded;
     .tippy-content {
       @apply p-0;
     }

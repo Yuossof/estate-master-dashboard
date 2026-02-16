@@ -11,10 +11,11 @@ import { useAuthContext } from "../../../../context/AuthProvider";
 import NavmenuSkeleton from "./skeleton/NavmenuSkeleton";
 
 const Sidebar = () => {
-  const { user, isLoading: L } = useAuthContext()
+  const { user, isLoading: L } = useAuthContext();
 
   const scrollableNodeRef = useRef();
   const [scroll, setScroll] = useState(false);
+
   useEffect(() => {
     if (!scrollableNodeRef.current) return;
 
@@ -36,40 +37,42 @@ const Sidebar = () => {
   // semi dark option
   const [isSemiDark] = useSemiDark();
 
-
   return (
     <div className={isSemiDark ? "dark" : ""}>
       <div
         className={clsx(
-          " sidebar-wrapper bg-white dark:bg-gray-800  shadow-base  ",
+          "sidebar-wrapper bg-white dark:bg-[var(--surface-sidebar)] border-r border-gray-200/80 dark:border-[var(--border-primary)]",
           {
             "w-[72px] close_sidebar": collapsed,
             "w-[280px]": !collapsed,
             "sidebar-hovered": menuHover,
           }
         )}
-        onMouseEnter={() => {
-          setMenuHover(true);
-        }}
-        onMouseLeave={() => {
-          setMenuHover(false);
-        }}
+        onMouseEnter={() => setMenuHover(true)}
+        onMouseLeave={() => setMenuHover(false)}
       >
         <SidebarLogo menuHover={menuHover} />
         <div
-          className={`h-[60px]  absolute top-[80px] nav-shadow z-[1] w-full transition-all duration-200 pointer-events-none ${scroll ? " opacity-100" : " opacity-0"
-            }`}
-        ></div>
+          className={`h-[60px] absolute top-[80px] nav-shadow z-[1] w-full transition-all duration-300 pointer-events-none ${
+            scroll ? "opacity-100" : "opacity-0"
+          }`}
+        />
 
         <SimpleBar
-          className="sidebar-menu  h-[calc(100%-80px)]"
+          className="sidebar-menu h-[calc(100%-80px)] py-2"
           scrollableNodeProps={{ ref: scrollableNodeRef }}
         >
-          {L && (
-            <NavmenuSkeleton />
-          )}
+          {L && <NavmenuSkeleton />}
           {user && !L && (
-            <Navmenu menus={user.role === "admin" ? adminMenuItems : user.role === "company-admin-role" ? companyMenuItems : adminMenuItems}/>
+            <Navmenu
+              menus={
+                user.role === "admin"
+                  ? adminMenuItems
+                  : user.role === "company-admin-role"
+                  ? companyMenuItems
+                  : adminMenuItems
+              }
+            />
           )}
         </SimpleBar>
       </div>

@@ -1,5 +1,5 @@
 .progress {
-  @apply bg-gray-900 dark:bg-gray-700 h-2;
+  @apply bg-gray-900 dark:bg-[var(--surface-elevated)] h-2;
   .progress-bar {
     &.stripes {
       background-image: linear-gradient(

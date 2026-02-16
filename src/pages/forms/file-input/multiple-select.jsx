@@ -20,7 +20,7 @@ const MultipleSelect = () => {
                     icon="ph:upload"
                     text="Choose File"
                     iconClass="text-2xl"
-                    className="bg-gray-100  text-gray-600 dark:bg-gray-700 dark:text-gray-300 btn-sm"
+                    className="bg-gray-100  text-gray-600 dark:bg-[var(--surface-elevated)] dark:text-gray-300 btn-sm"
                 />
             </Fileinput>
         </>

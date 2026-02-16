@@ -28,7 +28,7 @@ const RowDescription = ({ row }) => {
         whileTap={{ scale: 0.8, rotate: 90 }}
         whileHover={{ scale: 1.1 }}
         onClick={() => setLang(lang === "en" ? "ar" : "en")}
-        className="absolute lg:-top-2 lg:right-1 right-0 top-0 lg:opacity-100 opacity-50 w-8 h-8 hover:opacity-80 shadow-md rounded-full flex justify-center items-center cursor-pointer transition bg-slate-100 dark:bg-slate-700"
+        className="absolute lg:-top-2 lg:right-1 right-0 top-0 lg:opacity-100 opacity-50 w-8 h-8 hover:opacity-80 shadow-md rounded-full flex justify-center items-center cursor-pointer transition bg-slate-100 dark:bg-[var(--surface-elevated)]"
       >
         <Languages className="dark:text-gray-300 text-gray-600" />
       </motion.div>

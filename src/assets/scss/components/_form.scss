@@ -4,7 +4,7 @@
 
 .text-control {
   @apply bg-white dark:bg-transparent  transition duration-300 ease-in-out border border-gray-10
-   dark:border-gray-700 dark:text-gray-300 focus:border-indigo-600  dark:focus:border-indigo-600 
+   dark:border-[var(--border-primary)] dark:text-gray-300 focus:border-indigo-600  dark:focus:border-indigo-600 
     focus:outline-none rounded
     placeholder:text-gray-400 text-gray-900 text-sm px-3  placeholder:font-normal dark:placeholder:text-gray-400 block w-full;
 }
@@ -32,7 +32,7 @@
 
 // file input
 .file-control {
-  @apply bg-transparent dark:bg-gray-900 dark:text-white transition duration-300 ease-in-out border border-gray-10 dark:border-gray-700 focus:ring-1 focus:ring-gray-900  focus:outline-none rounded   text-sm ltr:pl-3 rtl:pr-3   placeholder:font-normal;
+  @apply bg-transparent dark:bg-[var(--surface-elevated)] dark:text-white transition duration-300 ease-in-out border border-gray-10 dark:border-[var(--border-primary)] focus:ring-1 focus:ring-gray-900  focus:outline-none rounded   text-sm ltr:pl-3 rtl:pr-3   placeholder:font-normal;
 }
 .badge-title {
   @apply bg-gray-900 text-white px-2 py-[3px] rounded text-sm;

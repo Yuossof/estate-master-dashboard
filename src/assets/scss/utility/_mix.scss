@@ -1,5 +1,5 @@
 .social-link {
-  @apply h-8 w-8 flex flex-col items-center justify-center border-gray-500 dark:border-gray-700 border rounded-full text-gray-900 dark:text-gray-300 leading-[1] hover:bg-gray-900 dark:hover:bg-gray-700 hover:text-white transition duration-150;
+  @apply h-8 w-8 flex flex-col items-center justify-center border-gray-500 dark:border-[var(--border-primary)] border rounded-full text-gray-900 dark:text-gray-300 leading-[1] hover:bg-gray-900 dark:hover:bg-[var(--surface-hover)] hover:text-white transition duration-150;
 }
 
 .legend-ring {
@@ -56,7 +56,7 @@
 
 // email
 .email-icon {
-  @apply h-8 w-8 bg-gray-100 dark:bg-gray-900 dark:text-gray-200 text-gray-600 flex flex-col justify-center items-center text-base rounded-full cursor-pointer;
+  @apply h-8 w-8 bg-gray-100 dark:bg-[var(--surface-elevated)] dark:text-gray-200 text-gray-600 flex flex-col justify-center items-center text-base rounded-full cursor-pointer;
 }
 
 // chat height
@@ -78,7 +78,7 @@
   height: calc(100% - 145px);
 }
 .msg-icon-btn {
-  @apply md:h-8 md:w-8 h-6 w-6 cursor-pointer bg-gray-100 dark:bg-gray-900 dark:text-gray-400 text-gray-900 flex flex-col justify-center items-center md:text-xl text-sm rounded-full;
+  @apply md:h-8 md:w-8 h-6 w-6 cursor-pointer bg-gray-100 dark:bg-[var(--surface-elevated)] dark:text-gray-400 text-gray-900 flex flex-col justify-center items-center md:text-xl text-sm rounded-full;
 }
 
 .cyan-600-list {
@@ -102,10 +102,10 @@
     @apply border-none p-0 mb-2;
   }
   .ql-container.ql-snow {
-    @apply bg-[#FBFBFB] dark:bg-gray-900 border-none text-base;
+    @apply bg-[#FBFBFB] dark:bg-[var(--surface-elevated)] border-none text-base;
   }
   .ql-editor {
-    @apply border-gray-200 dark:border-gray-700 border rounded text-base;
+    @apply border-gray-200 dark:border-[var(--border-primary)] border rounded text-base;
   }
 }
 .dark {
@@ -157,7 +157,7 @@
     @apply opacity-0 cursor-pointer;
   }
   .container-class {
-    @apply w-full h-[44px] bg-white dark:bg-gray-800 before:px-3  before:text-sm before:text-gray-900 rounded cursor-pointer;
+    @apply w-full h-[44px] bg-white dark:bg-[var(--surface-card)] before:px-3  before:text-sm before:text-gray-900 rounded cursor-pointer;
     &:before {
       content: "Weekly";
       position: absolute;
@@ -186,7 +186,7 @@
     @apply opacity-0 cursor-pointer;
   }
   .container-class {
-    @apply w-full h-[44px] bg-white dark:bg-gray-800 before:px-3  before:text-sm before:text-gray-900 rounded cursor-pointer;
+    @apply w-full h-[44px] bg-white dark:bg-[var(--surface-card)] before:px-3  before:text-sm before:text-gray-900 rounded cursor-pointer;
     &:before {
       content: "Select date";
       position: absolute;

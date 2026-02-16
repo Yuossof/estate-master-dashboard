@@ -19,7 +19,7 @@ const BasicInputPreview = () => {
                 icon="ph:upload"
                 text="Choose File"
                 iconClass="text-2xl"
-                className="bg-gray-100  dark:bg-gray-700 dark:text-gray-300 text-gray-600 btn-sm"
+                className="bg-gray-100  dark:bg-[var(--surface-elevated)] dark:text-gray-300 text-gray-600 btn-sm"
             />
         </Fileinput>
     );

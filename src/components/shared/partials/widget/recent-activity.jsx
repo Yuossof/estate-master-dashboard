@@ -55,7 +55,7 @@ const Recenttimeline = () => {
       <ul className="list-item space-y-3 h-full overflow-x-auto">
         {timeline.map((item, i) => (
           <li
-            className="flex items-center space-x-3 rtl:space-x-reverse border-b border-gray-100 dark:border-gray-700 last:border-b-0 pb-3 last:pb-0"
+            className="flex items-center space-x-3 rtl:space-x-reverse border-b border-gray-100 dark:border-[var(--border-primary)] last:border-b-0 pb-3 last:pb-0"
             key={i}
           >
             <div>

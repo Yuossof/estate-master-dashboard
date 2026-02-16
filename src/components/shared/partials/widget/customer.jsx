@@ -112,7 +112,7 @@ const Customer = () => {
         {customers2.map((item, i) => (
           <div
             key={i}
-            className="relative z-[1] p-4 rounded md:flex items-center bg-gray-4003 dark:bg-gray-900 md:space-x-10 md:space-y-0 space-y-3 rtl:space-x-reverse"
+            className="relative z-[1] p-4 rounded md:flex items-center bg-gray-4003 dark:bg-[var(--surface-elevated)] md:space-x-10 md:space-y-0 space-y-3 rtl:space-x-reverse"
           >
             <div
               className={`${

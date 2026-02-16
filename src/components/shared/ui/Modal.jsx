@@ -85,7 +85,7 @@ const Modal = ({
                   >
                     <Dialog.Panel
                       className={`w-full transform overflow-hidden rounded-lg
-                 bg-white dark:bg-gray-800 text-left align-middle shadow-base transition-all ${className}`}
+                 bg-white dark:bg-[var(--surface-card)] text-left align-middle shadow-base transition-all ${className}`}
                     >
                       {title && (
                         <div
@@ -107,7 +107,7 @@ const Modal = ({
                         {children}
                       </div>
                       {footerContent && (
-                        <div className="px-4 py-3 flex justify-end space-x-3 border-t border-gray-100 dark:border-gray-700">
+                        <div className="px-4 py-3 flex justify-end space-x-3 border-t border-gray-100 dark:border-[var(--border-primary)]">
                           {footerContent}
                         </div>
                       )}
@@ -154,7 +154,7 @@ const Modal = ({
                 >
                   <Dialog.Panel
                     className={`w-full transform overflow-hidden rounded-lg
-                 bg-white dark:bg-gray-800 text-left align-middle shadow-base transition-all ${className}`}
+                 bg-white dark:bg-[var(--surface-card)] text-left align-middle shadow-base transition-all ${className}`}
                   >
                     {title && (
                       <div
@@ -176,7 +176,7 @@ const Modal = ({
                       {children}
                     </div>
                     {footerContent && (
-                      <div className="px-4 py-3 flex justify-end space-x-3 border-t border-gray-100 dark:border-gray-700">
+                      <div className="px-4 py-3 flex justify-end space-x-3 border-t border-gray-100 dark:border-[var(--border-primary)]">
                         {footerContent}
                       </div>
                     )}

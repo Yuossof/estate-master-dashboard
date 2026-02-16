@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Pagination = ({ pagination, onPageChange, isLoading }) => {
     const { current_page, last_page } = pagination;
@@ -20,27 +21,28 @@ const Pagination = ({ pagination, onPageChange, isLoading }) => {
     }
 
     return (
-        <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex items-center gap-1">
             <button
                 disabled={current_page === 1 || isLoading}
                 onClick={() => onPageChange(current_page - 1)}
-                className="px-3 py-1 border-[1px] dark:text-gray-300 dark:hover:bg-gray-700 dark:border-slate-700 border-slate-200 rounded-full dark:bg-gray-800 bg-gray-100 text-gray-700 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                className="inline-flex items-center justify-center w-8 h-8 rounded-md text-gray-500 dark:text-slate-400 hover:bg-gray-100 dark:hover:bg-slate-700/50 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
-                Prev
+                <ChevronLeft className="w-4 h-4" />
             </button>
 
             {visiblePages.map((page, idx) =>
                 page === "..." ? (
-                    <span key={idx} className="px-2 text-gray-500">…</span>
+                    <span key={idx} className="px-1 text-gray-400 dark:text-slate-500 text-xs select-none">...</span>
                 ) : (
                     <button
                         key={idx}
                         disabled={isLoading}
                         onClick={() => onPageChange(page)}
-                        className={`px-3 py-1 rounded-full transition border-[1px] dark:border-slate-700 border-slate-200 ${current_page === page
-                                ? "bg-blue-500 text-white"
-                                : "dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 bg-gray-100 text-gray-700 hover:bg-gray-200"
-                            }`}
+                        className={`min-w-[32px] h-8 text-xs font-medium rounded-md transition-colors ${
+                            current_page === page
+                                ? "bg-indigo-600 text-white shadow-sm"
+                                : "text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-700/50"
+                        }`}
                     >
                         {page}
                     </button>
@@ -50,9 +52,9 @@ const Pagination = ({ pagination, onPageChange, isLoading }) => {
             <button
                 disabled={current_page === last_page || isLoading}
                 onClick={() => onPageChange(current_page + 1)}
-                className="px-3 py-1 border-[1px] dark:text-gray-300 dark:border-slate-700 dark:hover:bg-gray-700 border-slate-200 rounded-full dark:bg-gray-800 bg-gray-100 text-gray-700 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                className="inline-flex items-center justify-center w-8 h-8 rounded-md text-gray-500 dark:text-slate-400 hover:bg-gray-100 dark:hover:bg-slate-700/50 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
-                Next
+                <ChevronRight className="w-4 h-4" />
             </button>
         </div>
     );

@@ -64,47 +64,45 @@ const ThingsTodoCategoriesTable = ({ columns, thingsTodoCategories = [], setThin
                 isLoading={isLoading}
             />
 
-            <div className="overflow-x-auto">
-                <div className="inline-block min-w-full align-middle ">
-                    <div className="overflow-hidden ">
-                        <table className="min-w-full border border-gray-200 table-fixed dark:border-gray-600 border-collapse">
-                            <thead className="">
+            <div className="overflow-x-auto rounded-lg border border-gray-200/80 dark:border-[var(--border-primary)]">
+                        <table className="min-w-full">
+                            <thead>
                                 <tr>
                                     {columns.map((column, i) => (
                                         <th
                                             key={i}
                                             scope="col"
-                                            className=" table-th border border-gray-200 dark:bg-gray-800 dark:border-gray-600 "
+                                            className="table-th"
                                         >
                                             {column.label}
                                         </th>
                                     ))}
                                 </tr>
                             </thead>
-                            <tbody className="bg-white ">
+                            <tbody className="bg-white dark:bg-transparent divide-y divide-gray-100 dark:divide-[var(--border-secondary)]">
                                 {thingsTodoCategories.length > 0 && thingsTodoCategories.map((row, i) => (
                                     <tr
                                         key={i}
                                         className={`align-top ${i % 2 !== 0
-                                            ? "bg-blue-50 dark:bg-[#0f172aef]"
-                                            : "bg-white dark:bg-[#0f172af7]"
+                                            ? "bg-gray-50/50 dark:bg-[var(--surface-zebra)]"
+                                            : "bg-white dark:bg-transparent"
                                             }`}
                                     >
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                        <td className="table-td">
                                             {row.id}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {row.name}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {row.name_ar}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                        <td className="table-td">
                                             {row.image_url ? (
                                                 <img
                                                     src={row.image_url}
                                                     alt={`${row.name} image`}
-                                                    className="w-10 h-10 object-contain cursor-pointer hover:scale-110 transition-all active:scale-100  rounded-md border border-gray-200 dark:border-gray-600"
+                                                    className="w-10 h-10 object-contain cursor-pointer hover:scale-110 transition-all active:scale-100  rounded-md border border-gray-200 dark:border-[var(--border-primary)]"
                                                     onClick={() => {
                                                         setIsImagePreview(true)
                                                         setImageUrl(row.image_url)
@@ -114,7 +112,7 @@ const ThingsTodoCategoriesTable = ({ columns, thingsTodoCategories = [], setThin
                                                 <span className="text-gray-400 italic">No Image</span>
                                             )}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             <div className="flex items-center gap-2">
                                                 <Edit
                                                     onClick={() => handleNavigate(row)}
@@ -132,8 +130,6 @@ const ThingsTodoCategoriesTable = ({ columns, thingsTodoCategories = [], setThin
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
         </>
     )
 }

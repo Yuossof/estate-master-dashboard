@@ -290,7 +290,7 @@ const Dashboard = () => {
               <li key={i} className="flex justify-between items-center">
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">
                   <div className="flex-none">
-                    <div className="h-[34px] w-[34px] bg-gray-200 text-gray-500 dark:bg-gray-700 dark:text-gray-300 flex  items-center justify-center rounded-full">
+                    <div className="h-[34px] w-[34px] bg-gray-200 text-gray-500 dark:bg-[var(--surface-elevated)] dark:text-gray-300 flex  items-center justify-center rounded-full">
                       <Icon icon={item.flag} className="text-xl" />
                     </div>
                   </div>

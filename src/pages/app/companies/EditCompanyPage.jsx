@@ -116,13 +116,9 @@ const EditCompanyPage = () => {
     <div className="space-y-6">
 
       <Card>
-        <div className="mb-8 mt-2">
-          <h1 className="text-2xl font-semibold text-gray-800 dark:text-gray-100">
-            Update Comapany
-          </h1>
-          <p className="text-gray-600 text-sm dark:text-gray-400 mt-2">
-            company / edit
-          </p>
+        <div className="mb-6">
+          <h1 className="text-xl font-semibold text-gray-800 dark:text-gray-100">Update Company</h1>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Edit the details below to update this company</p>
         </div>
         <EditCompanyForm
           companyData={companyData}

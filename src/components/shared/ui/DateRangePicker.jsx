@@ -64,7 +64,7 @@ export default function PureCalendar({ value, onChange, label = "Date" }) {
               ? "bg-blue-600 text-white hover:bg-blue-700"
               : isToday
                 ? "bg-blue-100 text-blue-600 font-semibold dark:bg-blue-900 dark:text-blue-300"
-                : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800"
+                : "text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)]"
             }`}
         >
           {day}
@@ -86,9 +86,9 @@ export default function PureCalendar({ value, onChange, label = "Date" }) {
           id="date"
           onClick={() => setOpen(!open)}
           className="px-3 py-2 text-sm border w-full rounded-md flex items-center justify-between text-left 
-            bg-white dark:bg-gray-900 
-            border-gray-200 dark:border-gray-700 
-            shadow-sm hover:border-gray-300 dark:hover:border-gray-600 c-focus
+            bg-white dark:bg-[var(--surface-elevated)] 
+            border-gray-200 dark:border-[var(--border-primary)] 
+            shadow-sm hover:border-gray-300 dark:hover:border-[var(--border-primary)] c-focus
             "
         >
           <span className={value ? "text-gray-900 dark:text-gray-100" : "text-gray-500 dark:text-gray-400"}>
@@ -105,13 +105,13 @@ export default function PureCalendar({ value, onChange, label = "Date" }) {
         </button>
 
         {open && (
-          <div className="absolute z-10 mt-1 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-md shadow-lg">
+          <div className="absolute z-10 mt-1 bg-white dark:bg-[var(--surface-elevated)] border border-gray-200 dark:border-[var(--border-primary)] rounded-md shadow-lg">
             <div className="p-3">
               {/* Calendar Header */}
               <div className="flex items-center justify-between mb-4">
                 <button
                   onClick={previousMonth}
-                  className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="p-1 hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <svg className="w-4 h-4 text-gray-700 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -124,7 +124,7 @@ export default function PureCalendar({ value, onChange, label = "Date" }) {
 
                 <button
                   onClick={nextMonth}
-                  className="p-1 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="p-1 hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <svg className="w-4 h-4 text-gray-700 dark:text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

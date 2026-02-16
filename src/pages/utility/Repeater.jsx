@@ -20,7 +20,7 @@ const Repeater = () => {
   const index = 1;
   return (
     <div>
-      <div className="bg-gray-50 dark:bg-gray-800 -mx-5 px-6 py-6">
+      <div className="bg-gray-50 dark:bg-[var(--surface-card)] -mx-5 px-6 py-6">
         <div className="mb-6 text-gray-600 dark:text-gray-300 text-xs font-medium uppercase">
           Items cyan-600
         </div>

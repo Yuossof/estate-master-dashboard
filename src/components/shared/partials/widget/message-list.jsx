@@ -15,11 +15,11 @@ const MessageList = () => {
             >
               <div className="flex ltr:text-left rtl:text-right">
                 <div className="flex-none ltr:mr-3 rtl:ml-3">
-                  <div className="h-8 w-8 bg-white dark:bg-gray-700 rounded-full relative">
+                  <div className="h-8 w-8 bg-white dark:bg-[var(--surface-elevated)] rounded-full relative">
                     <span
                       className={`${
                         item.active ? "bg-gray-400" : "bg-green-600"
-                      } w-[10px] h-[10px] rounded-full border border-white dark:border-gray-700  inline-block absolute right-0 top-0`}
+                      } w-[10px] h-[10px] rounded-full border border-white dark:border-[var(--border-primary)]  inline-block absolute right-0 top-0`}
                     ></span>
                     <img
                       src={item.image}

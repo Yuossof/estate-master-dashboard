@@ -1,13 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
-import { FileUp, Search } from "lucide-react";
+import { FileUp, Search, FolderKanban } from "lucide-react";
 import { getCompaniesService } from "../../../services/company";
 import { getProjectsService } from "../../../services/projects";
+import { useNavigate } from "react-router-dom";
 
 import Card from "../../../components/shared/ui/Card";
 import Pagination from "@/components/Pagination";
 import TableSkeleton from "../../../components/shared/skeleton/TableSkeleton";
 import Select from "../../../components/shared/ui/Select";
 import ProjectsTable from "../../../components/projects/ProjectsTable";
+import PageHeader from "../../../components/shared/custom-ui/TablesHeader";
 
 const columns = [
   { label: "ID" },
@@ -24,6 +26,7 @@ const columns = [
 ];
 
 const ProjectsPage = () => {
+  const navigate = useNavigate();
   const [projectRows, setProjectRows] = useState([]);
   const [pagination, setPagination] = useState({});
   const [page, setPage] = useState(1);
@@ -123,14 +126,14 @@ const ProjectsPage = () => {
     <div>
       <Card noborder>
         {/* Page Header */}
-        <div className="mb-6 pb-4 border-b border-gray-200 dark:border-gray-700">
-          <h1 className="md:text-2xl text-xl font-semibold text-gray-800 dark:text-gray-100">
-            Projects Management
-          </h1>
-          <p className="md:text-base text-[14px] text-gray-500 dark:text-gray-400 mt-1">
-            Browse, search, and manage registered projects
-          </p>
-        </div>
+        <PageHeader
+          title="Projects Management"
+          icon={<FolderKanban size={22} />}
+          total={pagination.total}
+          entityName="project"
+          actionLabel="Add Project"
+          onActionClick={() => navigate("/projects/create")}
+        />
 
         {/* Filters */}
         <div className="flex w-full md:items-center sm:items-end items-center mb-8 md:flex-row flex-col">
@@ -167,12 +170,12 @@ const ProjectsPage = () => {
                   placeholder="Search..."
                   value={searchKey}
                   onChange={(e) => setSearchKey(e.target.value)}
-                  className="border dark:border-slate-600 border-slate-300 py-1 dark:bg-gray-900 px-2 pr-9 rounded-md w-full outline-none"
+                  className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-gray-200/80 dark:border-[var(--border-primary)] bg-gray-50/50 dark:bg-[var(--surface-elevated)] text-gray-700 dark:text-slate-200 placeholder-gray-400 dark:placeholder-slate-500 outline-none focus:border-indigo-300 dark:focus:border-indigo-500/50 focus:ring-2 focus:ring-indigo-500/10 transition-all"
                 />
-                <Search className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 w-5 h-5" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 dark:text-slate-500 w-4 h-4" />
               </div>
             </div>
-            <button className="btn-danger ml-5 sm:ml-0 flex items-center gap-2 py-1.5 px-2 rounded-md">
+            <button className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-lg border border-gray-200/80 dark:border-[var(--border-primary)] bg-white dark:bg-[var(--surface-elevated)] text-gray-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-[var(--surface-hover)] transition-colors flex-shrink-0">
               <span className="sm:block hidden">Export</span>
               <FileUp size={20} />
             </button>
@@ -193,7 +196,7 @@ const ProjectsPage = () => {
             />
           ) : (
             <div className="w-full flex justify-center my-5">
-              <p className="text-gray-600 dark:text-gray-400">Select a company first!</p>
+              <p className="text-gray-500 dark:text-slate-400">Select a company first!</p>
             </div>
           )
         )}

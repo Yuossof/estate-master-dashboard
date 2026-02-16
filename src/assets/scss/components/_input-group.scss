@@ -1,6 +1,6 @@
 .input-group-control {
   @apply bg-white dark:bg-transparent dark:placeholder:text-gray-400 transition 
-  duration-300 ease-in-out border border-gray-10 dark:border-gray-700 
+  duration-300 ease-in-out border border-gray-10 dark:border-[var(--border-primary)] 
   focus:ring-0  focus:outline-none  
   rounded placeholder:text-gray-400 text-gray-900 text-sm px-3 
    placeholder:font-light focus:border-indigo-600  dark:focus:border-indigo-600 dark:text-white;
@@ -25,7 +25,7 @@
 
 .input-group-text {
   @apply bg-white dark:bg-transparent transition duration-300 ease-in-out  flex items-center justify-center px-3 border
-   border-gray-10 dark:border-gray-700 ltr:rounded-tl rtl:rounded-tr rtl:rounded-br ltr:rounded-bl text-gray-400 text-base font-light;
+   border-gray-10 dark:border-[var(--border-primary)] ltr:rounded-tl rtl:rounded-tr rtl:rounded-br ltr:rounded-bl text-gray-400 text-base font-light;
 }
 .inputGroup.has-prepend {
   .input-group-control {

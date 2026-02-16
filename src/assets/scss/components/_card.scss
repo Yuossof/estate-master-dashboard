@@ -1,23 +1,30 @@
 .card {
-  @apply rounded-lg bg-white dark:bg-gray-800    shadow-card;
+  @apply rounded-xl;
+  background: var(--surface-card);
+  border: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-card);
 }
 
 .card-title {
-  @apply font-medium  capitalize   text-base  text-gray-900 dark:text-white;
+  @apply font-semibold capitalize text-base text-gray-900 dark:text-slate-50;
 }
+
 .card-subtitle {
-  @apply text-sm   text-gray-400 dark:text-gray-300 mt-1;
+  @apply text-sm text-gray-500 dark:text-slate-400 mt-1;
 }
 
 .card-header {
-  @apply flex items-center justify-between px-5 pt-4;
+  @apply flex items-center justify-between px-6 pt-5;
 }
+
 .card-header:not(.no-border) {
-  @apply border-b border-indigo-50 dark:border-gray-700 pb-4;
+  @apply pb-4;
+  border-bottom: 1px solid var(--border-secondary);
 }
 
 .card-footer {
-  @apply flex items-center justify-between px-6 pt-6 border-t border-gray-200 dark:border-gray-700 pb-4;
+  @apply flex items-center justify-between px-6 pt-5 pb-4;
+  border-top: 1px solid var(--border-secondary);
 }
 
 .card-height-auto {

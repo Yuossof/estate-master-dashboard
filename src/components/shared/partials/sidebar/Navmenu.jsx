@@ -46,40 +46,38 @@ const Navmenu = ({ menus }) => {
   }, [location, menus]);
 
   return (
-    <>
-      <ul>
-        {menus.map((item, i) => (
-          <li
-            key={i}
-            className={`single-menu-item 
-              ${item.child ? "item-has-children" : ""}
-              ${activeSubmenu === i ? "open" : ""}
-              ${locationName === item.link ? "menu-item-active" : ""}`}
-          >
-            {/* single menu with no children */}
-            {!item.child && <SingleMenu item={item} />}
-            
-            {/* menu with children - dropdown */}
-            {item.child && (
-              <MenuItem
-                activeSubmenu={activeSubmenu}
-                item={item}
-                i={i}
-                toggleSubmenu={toggleSubmenu}
-                locationName={locationName}
-              />
-            )}
-            
-            <Submenu 
-              activeSubmenu={activeSubmenu} 
-              item={item} 
-              i={i} 
-              locationName={locationName} 
+    <ul className="space-y-0.5 px-3">
+      {menus.map((item, i) => (
+        <li
+          key={i}
+          className={`single-menu-item 
+            ${item.child ? "item-has-children" : ""}
+            ${activeSubmenu === i ? "open" : ""}
+            ${locationName === item.link ? "menu-item-active" : ""}`}
+        >
+          {/* single menu with no children */}
+          {!item.child && <SingleMenu item={item} />}
+
+          {/* menu with children - dropdown */}
+          {item.child && (
+            <MenuItem
+              activeSubmenu={activeSubmenu}
+              item={item}
+              i={i}
+              toggleSubmenu={toggleSubmenu}
+              locationName={locationName}
             />
-          </li>
-        ))}
-      </ul>
-    </>
+          )}
+
+          <Submenu
+            activeSubmenu={activeSubmenu}
+            item={item}
+            i={i}
+            locationName={locationName}
+          />
+        </li>
+      ))}
+    </ul>
   );
 };
 

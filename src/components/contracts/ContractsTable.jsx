@@ -74,17 +74,15 @@ const ContractsTable = ({
                 isLoading={isLoading}
             />
 
-            <div className="overflow-x-auto">
-                <div className="inline-block min-w-full align-middle ">
-                    <div className="overflow-hidden ">
-                        <table className="min-w-full border border-gray-200 table-fixed dark:border-gray-600 border-collapse">
+            <div className="overflow-x-auto rounded-lg border border-gray-200/80 dark:border-[var(--border-primary)]">
+                        <table className="min-w-full">
                             <thead>
                                 <tr>
                                     {columns.map((column, i) => (
                                         <th
                                             key={i}
                                             scope="col"
-                                            className="table-th border border-gray-200 dark:bg-gray-800 dark:border-gray-600"
+                                            className="table-th"
                                         >
                                             <div className="flex items-center justify-between">
                                                 {column.label}
@@ -93,53 +91,53 @@ const ContractsTable = ({
                                     ))}
                                 </tr>
                             </thead>
-                            <tbody className="bg-white transition-all">
+                            <tbody className="bg-white dark:bg-transparent divide-y divide-gray-100 dark:divide-[var(--border-secondary)]">
                                 {contractsRows.length > 0 ? (
 
                                     contractsRows.map((row, i) => (
                                         <tr
                                             key={i}
                                             className={`align-top ${i % 2 !== 0
-                                                ? "bg-blue-50 dark:bg-[#0f172aef]"
-                                                : "bg-white dark:bg-[#0f172af7]"
+                                                ? "bg-gray-50/50 dark:bg-[var(--surface-zebra)]"
+                                                : "bg-white dark:bg-transparent"
                                                 }`}
                                         >
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.id}
                                             </td>
 
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.contract_status || "-"}
                                             </td>
 
 
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.natural_id || "-"}
                                             </td>
 
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.presenter || "-"}
                                             </td>
 
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.rest_money || "-"}
                                             </td>
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.amount || "-"}
                                             </td>
 
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.contract_num || "-"}
                                             </td>
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.con_id || "-"}
                                             </td>
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.all_media ? (
                                                     <img
                                                         src={row.media[0]}
                                                         alt={` media`}
-                                                        className="w-10 h-10 object-contain cursor-pointer hover:scale-110 transition-all active:scale-100 rounded-md border border-gray-200 dark:border-gray-600"
+                                                        className="w-10 h-10 object-contain cursor-pointer hover:scale-110 transition-all active:scale-100 rounded-md border border-gray-200 dark:border-[var(--border-primary)]"
                                                         onClick={() => {
                                                             setImagesPreviewData(row.all_media)
                                                             setIsMultiImagePreviewOpen(true)
@@ -153,7 +151,7 @@ const ContractsTable = ({
 
 
                                             {/* Actions */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 <div className="flex items-center gap-2">
                                                     <Edit
                                                         onClick={() => handleNavigate(row)}
@@ -180,7 +178,7 @@ const ContractsTable = ({
                                         </tr>
                                     ))
                                 ) : (
-                                    <tr className='bg-blue-50 dark:bg-[#0f172af7]'>
+                                    <tr className='bg-gray-50/50 dark:bg-[var(--surface-zebra)]'>
                                         <td
                                             colSpan={10}
                                             className="text-center py-4  text-gray-500 dark:text-gray-400 "
@@ -192,8 +190,6 @@ const ContractsTable = ({
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
         </>
     );
 };

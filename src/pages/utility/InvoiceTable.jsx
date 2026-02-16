@@ -29,28 +29,28 @@ const rows = [
 const InvoiceTable = () => {
   return (
     <div>
-      <table className="w-full border-collapse table-fixed dark:border-gray-700 dark:border">
+      <table className="w-full border-collapse table-fixed dark:border-[var(--border-primary)] dark:border">
         <tr className="">
           <th
             colSpan={3}
-            className="bg-gray-100 dark:bg-gray-700 dark:text-gray-300 text-xs  font-medium leading-4 uppercase text-gray-600 ltr:text-left ltr:last:text-right rtl:text-right rtl:last:text-left"
+            className="bg-gray-100 dark:bg-[var(--surface-elevated)] dark:text-gray-300 text-xs  font-medium leading-4 uppercase text-gray-600 ltr:text-left ltr:last:text-right rtl:text-right rtl:last:text-left"
           >
             <span className="block px-6 py-5 font-semibold">Product</span>
           </th>
-          <th className="bg-gray-100 dark:bg-gray-700 dark:text-gray-300 text-xs  font-medium leading-4 uppercase text-gray-600 ltr:text-left ltr:last:text-right rtl:text-right rtl:last:text-left">
+          <th className="bg-gray-100 dark:bg-[var(--surface-elevated)] dark:text-gray-300 text-xs  font-medium leading-4 uppercase text-gray-600 ltr:text-left ltr:last:text-right rtl:text-right rtl:last:text-left">
             <span className="block px-6 py-5 font-semibold">Quantity</span>
           </th>
-          <th className="bg-gray-100 dark:bg-gray-700 dark:text-gray-300 text-xs  font-medium leading-4 uppercase text-gray-600 ltr:text-left ltr:last:text-right rtl:text-right rtl:last:text-left">
+          <th className="bg-gray-100 dark:bg-[var(--surface-elevated)] dark:text-gray-300 text-xs  font-medium leading-4 uppercase text-gray-600 ltr:text-left ltr:last:text-right rtl:text-right rtl:last:text-left">
             <span className="block px-6 py-5 font-semibold">PRICE</span>
           </th>
-          <th className="bg-gray-100 dark:bg-gray-700 dark:text-gray-300 text-xs  font-medium leading-4 uppercase text-gray-600 ltr:text-left ltr:last:text-right rtl:text-right rtl:last:text-left">
+          <th className="bg-gray-100 dark:bg-[var(--surface-elevated)] dark:text-gray-300 text-xs  font-medium leading-4 uppercase text-gray-600 ltr:text-left ltr:last:text-right rtl:text-right rtl:last:text-left">
             <span className="block px-6 py-5 font-semibold">TOTAL</span>
           </th>
         </tr>
         {rows.map((data, index) => (
           <tr
             key={index}
-            className="border-b border-gray-100 dark:border-gray-700"
+            className="border-b border-gray-100 dark:border-[var(--border-primary)]"
           >
             <td
               colSpan={3}

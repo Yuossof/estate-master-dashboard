@@ -43,7 +43,7 @@ const Products = () => {
       {products.map((item, i) => (
         <div
           key={i}
-          className="bg-gray-50 dark:bg-gray-900 p-4 rounded text-center"
+          className="bg-gray-50 dark:bg-[var(--surface-elevated)] p-4 rounded text-center"
         >
           <div className="h-12 w-12 rounded-full mb-4 mx-auto">
             <img src={item.img} alt="" className="w-full h-full rounded-full" />
@@ -56,7 +56,7 @@ const Products = () => {
           </span>
           <a
             href="#"
-            className="btn btn-secondary dark:bg-gray-800 dark:hover:bg-gray-600 block w-full text-center btn-sm"
+            className="btn btn-secondary dark:bg-[var(--surface-card)] dark:hover:bg-gray-600 block w-full text-center btn-sm"
           >
             View More
           </a>

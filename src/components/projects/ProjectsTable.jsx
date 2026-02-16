@@ -127,24 +127,22 @@ const ProjectsTable = ({
                 isLoading={isLoading}
             />
 
-            <div className="overflow-x-auto">
-                <div className="inline-block min-w-full align-middle ">
-                    <div className="overflow-hidden ">
-                        <table className="min-w-full border border-gray-200 table-fixed dark:border-gray-600 border-collapse">
+            <div className="overflow-x-auto rounded-lg border border-gray-200/80 dark:border-[var(--border-primary)]">
+                        <table className="min-w-full">
                             <thead>
                                 <tr>
                                     {columns.map((column, i) => (
                                         <th
                                             key={i}
                                             scope="col"
-                                            className="table-th border border-gray-200 dark:bg-gray-800 dark:border-gray-600"
+                                            className="table-th"
                                         >
                                             <div className="flex items-center justify-between">
                                                 {column.label}
                                                 {column.label === "Description" && (
                                                     <div
                                                         onClick={handleToggleLang}
-                                                        className="bg-slate-100 dark:bg-gray-900 border-[1px] border-slate-200 dark:border-slate-500 w-8 h-8 cursor-pointer hover:shadow-lg hover:scale-110 active:-rotate-45 shadow-md rounded-full flex justify-center items-center transition-all duration-300"
+                                                        className="bg-slate-100 dark:bg-[var(--surface-elevated)] border-[1px] border-slate-200 dark:border-slate-500 w-8 h-8 cursor-pointer hover:shadow-lg hover:scale-110 active:-rotate-45 shadow-md rounded-full flex justify-center items-center transition-all duration-300"
                                                     >
                                                         <Languages
                                                             className="dark:text-gray-300 text-gray-600"
@@ -157,33 +155,33 @@ const ProjectsTable = ({
                                     ))}
                                 </tr>
                             </thead>
-                            <tbody className="bg-white transition-all">
+                            <tbody className="bg-white dark:bg-transparent divide-y divide-gray-100 dark:divide-[var(--border-secondary)]">
                                 {projectRows.length > 0 &&
                                     projectRows.map((row, i) => (
                                         <tr
                                             key={i}
                                             className={`align-top ${i % 2 !== 0
-                                                ? "bg-blue-50 dark:bg-[#0f172aef]"
-                                                : "bg-white dark:bg-[#0f172af7]"
+                                                ? "bg-gray-50/50 dark:bg-[var(--surface-zebra)]"
+                                                : "bg-white dark:bg-transparent"
                                                 }`}
                                         >
                                             {/* ID */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.id}
                                             </td>
 
                                             {/* Name */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.name}
                                             </td>
 
                                             {/* Image */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.project_logo ? (
                                                     <img
                                                         src={row.project_logo}
                                                         alt={`${row.name} logo`}
-                                                        className="w-10 h-10 object-contain cursor-pointer hover:scale-110 transition-all active:scale-100 rounded-md border border-gray-200 dark:border-gray-600"
+                                                        className="w-10 h-10 object-contain cursor-pointer hover:scale-110 transition-all active:scale-100 rounded-md border border-gray-200 dark:border-[var(--border-primary)]"
                                                         onClick={() => {
                                                             setIsImagePreview(true);
                                                             setImageUrl(row.project_logo);
@@ -195,35 +193,35 @@ const ProjectsTable = ({
                                             </td>
 
                                             {/* Address */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 <ExpandableText text={row.address} />
                                             </td>
 
                                             {/* Phone */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.phone_number}
                                             </td>
 
                                             {/* WhatsApp */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.whatsapp_number}
                                             </td>
 
                                             {/* Start Date */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.start_date}
                                             </td>
 
                                             {/* End Date */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.end_date}
                                             </td>
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {row.all_media ? (
                                                     <img
                                                         src={row.all_media[0]}
                                                         alt={`${row.name} media`}
-                                                        className="w-10 h-10 object-contain cursor-pointer hover:scale-110 transition-all active:scale-100 rounded-md border border-gray-200 dark:border-gray-600"
+                                                        className="w-10 h-10 object-contain cursor-pointer hover:scale-110 transition-all active:scale-100 rounded-md border border-gray-200 dark:border-[var(--border-primary)]"
                                                         onClick={() => {
                                                             setImagesPreviewData(row.all_media)
                                                             setIsMultiImagePreviewOpen(true)
@@ -235,7 +233,7 @@ const ProjectsTable = ({
                                             </td>
 
                                             {/* Active */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 {toggleLoadingId === row.id ? (
                                                     <Loader2 className="w-4 h-4 dark:text-white text-gray-800 animate-spin" />
                                                 ) : (
@@ -253,7 +251,7 @@ const ProjectsTable = ({
                                             </td>
 
                                             {/* Actions */}
-                                            <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                            <td className="table-td">
                                                 <div className="flex items-center gap-2">
                                                     <Edit
                                                         onClick={() => handleNavigate(row)}
@@ -282,8 +280,6 @@ const ProjectsTable = ({
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
         </>
     );
 };

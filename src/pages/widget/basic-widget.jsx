@@ -19,7 +19,7 @@ import svgGift from "@/assets/images/svg/gift.svg";
 
 const rabitWidget = [
   {
-    bg: "bg-gray-900 dark:bg-gray-800",
+    bg: "bg-gray-900 dark:bg-[var(--surface-card)]",
   },
   {
     bg: "bg-indigo-700",
@@ -33,7 +33,7 @@ const rabitWidget = [
 ];
 const griftWidget = [
   {
-    bg: "bg-gray-900 dark:bg-gray-800",
+    bg: "bg-gray-900 dark:bg-[var(--surface-card)]",
   },
   {
     bg: "bg-indigo-700",

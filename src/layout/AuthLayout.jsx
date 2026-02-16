@@ -20,7 +20,7 @@ const AuthLayout = () => {
   }, [])
 
   return (
-    <div className="auth-wrapper dark:bg-gray-900 bg-gray-50 relative">
+    <div className="auth-wrapper dark:bg-[var(--surface-page)] bg-gray-50 relative">
       <div onClick={() => setDarkMode(isDark ? false : true)}>
         <motion.div
           whileHover={{ scale: 1.2, rotate: 10 }}

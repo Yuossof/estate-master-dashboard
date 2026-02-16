@@ -26,7 +26,7 @@ const CompanyDrawer = ({ isOpen, setIsDrawerOpen, onClose, data, loading }) => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="h-full w-full max-w-[650px] bg-white dark:bg-gray-900 shadow-2xl"
+            className="h-full w-full max-w-[650px] bg-white dark:bg-[var(--surface-elevated)] shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
 
@@ -34,7 +34,7 @@ const CompanyDrawer = ({ isOpen, setIsDrawerOpen, onClose, data, loading }) => {
               {/* Close Btn */}
               <button
                 onClick={onClose}
-                className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors absolute dark:top-3 top-5 right-3"
+                className="p-2 hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)] rounded-full transition-colors absolute dark:top-3 top-5 right-3"
               >
                 <X className="w-5 h-5 text-gray-500 dark:text-gray-400" />
               </button>
@@ -49,7 +49,7 @@ const CompanyDrawer = ({ isOpen, setIsDrawerOpen, onClose, data, loading }) => {
                   <div className="px-6 py-6 space-y-10">
                     {/* Company Section */}
                     <div className="space-y-6">
-                      <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-gray-700">
+                      <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-[var(--border-primary)]">
                         <Building2 className="w-5 h-5 text-blue-600" />
                         <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                           Company Information
@@ -57,7 +57,7 @@ const CompanyDrawer = ({ isOpen, setIsDrawerOpen, onClose, data, loading }) => {
                       </div>
 
                       {/* Logo + Name */}
-                      <div className="flex items-start gap-4 py-4 dark:px-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                      <div className="flex items-start gap-4 py-4 dark:px-3 bg-gray-50 dark:bg-[var(--surface-card)] rounded-lg">
                         <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 flex-shrink-0">
                           {data?.logo?.[0] ? (
                             <img
@@ -125,7 +125,7 @@ const CompanyDrawer = ({ isOpen, setIsDrawerOpen, onClose, data, loading }) => {
 
                     {/* Global Settings Section */}
                     <div className="space-y-6">
-                      <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-gray-700">
+                      <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-[var(--border-primary)]">
                         <Globe className="w-5 h-5 text-blue-600" />
                         <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                           Global Settings
@@ -192,7 +192,7 @@ const CompanyDrawer = ({ isOpen, setIsDrawerOpen, onClose, data, loading }) => {
 
 /* Reusable DetailCard */
 const DetailCard = ({ label, value, isColorCode }) => (
-  <div className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+  <div className="p-4 bg-white dark:bg-[var(--surface-card)] border border-gray-200 dark:border-[var(--border-primary)] rounded-lg">
     <div className="flex items-center justify-between">
       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
         {label}
@@ -209,7 +209,7 @@ const DetailCard = ({ label, value, isColorCode }) => (
 
 /* Reusable LinkCard with Copy */
 const LinkCard = ({ label, value, copyToClipboard }) => (
-  <div className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+  <div className="p-4 bg-white dark:bg-[var(--surface-card)] border border-gray-200 dark:border-[var(--border-primary)] rounded-lg">
     <div className="flex items-center justify-between">
       <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
         {label}
@@ -227,7 +227,7 @@ const LinkCard = ({ label, value, copyToClipboard }) => (
         {value && (
           <button
             onClick={() => copyToClipboard(value)}
-            className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
+            className="p-1 hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)] rounded transition-colors"
             title="Copy to clipboard"
           >
             <Copy className="w-4 h-4 text-gray-500 dark:text-gray-400" />

@@ -67,13 +67,13 @@ const CompanyUserProfileDrawer = ({ isOpen, setIsDrawerOpen, onClose, userId }) 
                         animate={{ x: 0 }}
                         exit={{ x: "100%" }}
                         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                        className="relative h-full w-full max-w-[600px] bg-white dark:bg-gray-900 shadow-2xl"
+                        className="relative h-full w-full max-w-[600px] bg-white dark:bg-[var(--surface-elevated)] shadow-2xl"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <CardSpotlight isDark={isDark} className={"bg-transparent w-full !mx-0 !px-0 h-full"}>
                             <div className="relative w-full h-full">
                                 {/* Header */}
-                                <button onClick={onClose} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors absolute dark:-top-5 top-3 right-4">
+                                <button onClick={onClose} className="p-2 hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)] rounded-full transition-colors absolute dark:-top-5 top-3 right-4">
                                     <X className="w-5 h-5 text-gray-500 dark:text-gray-400" />
                                 </button>
 
@@ -96,12 +96,12 @@ const CompanyUserProfileDrawer = ({ isOpen, setIsDrawerOpen, onClose, userId }) 
                                         <div className="px-6 py-6 space-y-8">
                                             {/* User Section */}
                                             <div className="space-y-6">
-                                                <div className="flex items-center gap-2 pb-5 mb-4 border-b border-gray-100 dark:border-gray-700">
+                                                <div className="flex items-center gap-2 pb-5 mb-4 border-b border-gray-100 dark:border-[var(--border-primary)]">
                                                     <User className="w-5 h-5 text-blue-600" />
                                                     <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">User Information</h3>
                                                 </div>
 
-                                                <div className="flex items-start gap-4 py-4 dark:py-4 dark:px-3.5 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                                <div className="flex items-start gap-4 py-4 dark:py-4 dark:px-3.5 bg-gray-50 dark:bg-[var(--surface-card)] rounded-lg">
                                                     <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 flex-shrink-0">
                                                         {companyUserData.profile_image ? (
                                                             <img
@@ -139,13 +139,13 @@ const CompanyUserProfileDrawer = ({ isOpen, setIsDrawerOpen, onClose, userId }) 
                                                     />
                                                     <DetailCard label="Prefix" value={companyUserData.prefix || "Not set"} />
 
-                                                    <div className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+                                                    <div className="p-4 bg-white dark:bg-[var(--surface-card)] border border-gray-200 dark:border-[var(--border-primary)] rounded-lg">
                                                         <div className="flex items-center justify-between mb-2">
                                                             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Device Token</span>
                                                             {companyUserData.device_token && (
                                                                 <button
                                                                     onClick={() => copyToClipboard(companyUserData.device_token)}
-                                                                    className="p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors"
+                                                                    className="p-1 hover:bg-gray-100 dark:hover:bg-[var(--surface-hover)] rounded transition-colors"
                                                                     title="Copy to clipboard"
                                                                 >
                                                                     <Copy className="w-4 h-4 text-gray-500 dark:text-gray-400" />
@@ -171,12 +171,12 @@ const CompanyUserProfileDrawer = ({ isOpen, setIsDrawerOpen, onClose, userId }) 
 
                                             {/* Company Section */}
                                             <div className="space-y-6">
-                                                <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-gray-700">
+                                                <div className="flex items-center gap-2 pb-2 border-b border-gray-100 dark:border-[var(--border-primary)]">
                                                     <Building2 className="w-5 h-5 text-green-600" />
                                                     <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Company Information</h3>
                                                 </div>
 
-                                                <div className="flex items-start gap-4 py-4 dark:py-4 dark:px-3.5 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                                <div className="flex items-start gap-4 py-4 dark:py-4 dark:px-3.5 bg-gray-50 dark:bg-[var(--surface-card)] rounded-lg">
                                                     <div className="w-16 h-16 rounded-lg overflow-hidden bg-gradient-to-br from-green-100 to-green-200 flex-shrink-0">
                                                         {companyData.logo ? (
                                                             <img
@@ -205,7 +205,7 @@ const CompanyUserProfileDrawer = ({ isOpen, setIsDrawerOpen, onClose, userId }) 
                                                     <DetailCard label="Application Name" value={companyData.app_name || "Not specified"} />
 
                                                     {companyData.description && (
-                                                        <div className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+                                                        <div className="p-4 bg-white dark:bg-[var(--surface-card)] border border-gray-200 dark:border-[var(--border-primary)] rounded-lg">
                                                             <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Description</h5>
                                                             <ExpandableText
                                                                 text={companyData.description}
@@ -216,7 +216,7 @@ const CompanyUserProfileDrawer = ({ isOpen, setIsDrawerOpen, onClose, userId }) 
                                                     )}
 
                                                     {companyData.description_ar && (
-                                                        <div className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+                                                        <div className="p-4 bg-white dark:bg-[var(--surface-card)] border border-gray-200 dark:border-[var(--border-primary)] rounded-lg">
                                                             <h5 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Arabic Description</h5>
                                                             <ExpandableText
                                                                 text={companyData.description_ar}
@@ -243,7 +243,7 @@ const CompanyUserProfileDrawer = ({ isOpen, setIsDrawerOpen, onClose, userId }) 
 
 /* Enhanced reusable DetailCard component with dark mode support */
 const DetailCard = ({ label, value, status }) => (
-    <div className="p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+    <div className="p-4 bg-white dark:bg-[var(--surface-card)] border border-gray-200 dark:border-[var(--border-primary)] rounded-lg">
         <div className="flex items-center justify-between">
             <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{label}</span>
             <div className="flex items-center gap-2">

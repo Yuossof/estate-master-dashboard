@@ -39,41 +39,40 @@ const MobileMenu = ({ className = "custom-class" }) => {
   const [mobileMenu, setMobileMenu] = useMobileMenu();
 
   if (L) {
-    return <div className="h-full w-[280px] bg-white dark:bg-gray-800"></div>;
+    return <div className="h-full w-[280px] bg-white dark:bg-[var(--surface-sidebar)]"></div>;
   }
 
   return (
     <div className={isSemiDark ? "dark" : ""}>
       <div
         className={`${className} fixed top-0 h-full w-[280px] bottom-0
-        bg-white dark:bg-gray-800/80
-        backdrop-blur-md shadow-lg border-r border-gray-200 dark:border-gray-700
+        bg-white dark:bg-[var(--surface-sidebar)]
+        shadow-xl border-r border-gray-200/80 dark:border-[var(--border-primary)]
         transition-colors duration-300`}
       >
         {/* --- Logo Section --- */}
         <div
-          className="logo-segment flex justify-between items-center 
-          bg-white dark:bg-gray-800
-          backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 
-          z-[9] h-[85px] px-4"
+          className="logo-segment flex justify-between items-center
+          bg-white dark:bg-[var(--surface-sidebar)]
+          z-[9] h-[80px] px-4 border-b border-gray-100 dark:border-[var(--border-primary)]"
         >
-          <Link to="/dashboard">
-            <div className="flex items-center space-x-4">
-              <div className="logo-icon">
-                <img src={logo} alt="" className="w-10 h-10 rounded-sm" />
-              </div>
-              <div>
-                <h1 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
-                  DashSpace
-                </h1>
-              </div>
+          <Link to="/dashboard" className="flex items-center gap-3">
+            <div className="logo-icon">
+              <img
+                src={logo}
+                alt="Estate Master"
+                className="w-[38px] h-[38px] rounded-lg object-contain"
+              />
             </div>
+            <h1 className="text-lg font-semibold text-gray-800 dark:text-gray-100 tracking-tight">
+              Estate Master
+            </h1>
           </Link>
 
           <button
             type="button"
             onClick={() => setMobileMenu(!mobileMenu)}
-            className="cursor-pointer text-gray-900 dark:text-white text-2xl"
+            className="p-1.5 rounded-lg text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50 transition-all duration-200"
           >
             <Icon icon="heroicons:x-mark" />
           </button>
@@ -81,18 +80,14 @@ const MobileMenu = ({ className = "custom-class" }) => {
 
         {/* --- Shadow overlay when scrolling --- */}
         <div
-          className={`h-[60px] absolute top-[80px] nav-shadow z-[1] w-full transition-all duration-200 pointer-events-none ${
+          className={`h-[60px] absolute top-[80px] nav-shadow z-[1] w-full transition-all duration-300 pointer-events-none ${
             scroll ? "opacity-100" : "opacity-0"
           }`}
-          style={{
-            boxShadow:
-              "0px 10px 15px -10px rgba(0, 0, 0, 0.1)"
-          }}
-        ></div>
+        />
 
         {/* --- Sidebar Content --- */}
         <SimpleBar
-          className="sidebar-menu h-[calc(100%-80px)]"
+          className="sidebar-menu h-[calc(100%-80px)] py-2"
           scrollableNodeProps={{ ref: scrollableNodeRef }}
         >
           {user && (

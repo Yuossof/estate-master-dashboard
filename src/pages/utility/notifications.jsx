@@ -6,7 +6,7 @@ const NotificationPage = () => {
   return (
     <div>
       <Card bodyClass="p-0">
-        <div className="flex justify-between px-4 py-4 border-b border-gray-100 dark:border-gray-600">
+        <div className="flex justify-between px-4 py-4 border-b border-gray-100 dark:border-[var(--border-primary)]">
           <div className="text-sm text-gray-800 dark:text-gray-200 font-medium leading-6">
             All Notifications
           </div>
@@ -19,7 +19,7 @@ const NotificationPage = () => {
                   <div
                     className={`${
                       active
-                        ? "bg-gray-100 dark:bg-gray-700 dark:bg-opacity-70 text-gray-800"
+                        ? "bg-gray-100 dark:bg-[var(--surface-elevated)] dark:bg-opacity-70 text-gray-800"
                         : "text-gray-600 dark:text-gray-300"
                     } block w-full px-4 py-2 text-sm  cursor-pointer`}
                   >

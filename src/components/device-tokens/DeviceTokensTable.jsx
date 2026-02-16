@@ -73,42 +73,40 @@ const DeviceTokensTable = ({ columns, deviceTokensRows = [], setDeviceTokensRows
                 cancelText='Cancel'
                 isLoading={isLoading}
             />
-            <div className="overflow-x-auto">
-                <div className="inline-block min-w-full align-middle ">
-                    <div className="overflow-hidden ">
-                        <table className="min-w-full border border-gray-200 table-fixed dark:border-gray-600 border-collapse">
-                            <thead className="">
+            <div className="overflow-x-auto rounded-lg border border-gray-200/80 dark:border-[var(--border-primary)]">
+                        <table className="min-w-full">
+                            <thead>
                                 <tr>
                                     {columns.map((column, i) => (
                                         <th
                                             key={i}
                                             scope="col"
-                                            className=" table-th border border-gray-200 dark:bg-gray-800 dark:border-gray-600 "
+                                            className="table-th"
                                         >
                                             {column.label}
                                         </th>
                                     ))}
                                 </tr>
                             </thead>
-                            <tbody className="bg-white ">
+                            <tbody className="bg-white dark:bg-transparent divide-y divide-gray-100 dark:divide-[var(--border-secondary)]">
                                 {deviceTokensRows.length > 0 && deviceTokensRows.map((row, i) => (
                                     <tr key={i}
                                         className={`align-top ${i % 2 !== 0
-                                            ? "bg-blue-50 dark:bg-[#0f172aef]"
-                                            : "bg-white dark:bg-[#0f172af7]"
+                                            ? "bg-gray-50/50 dark:bg-[var(--surface-zebra)]"
+                                            : "bg-white dark:bg-transparent"
                                             }`}
                                     >
 
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                        <td className="table-td">
                                             {row.id}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {row.user_id}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {row.device_type || "-"}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600">
+                                        <td className="table-td">
                                             {row.token ? (
                                                 <div className="flex items-center gap-2">
                                                     <span title={row.token}>
@@ -132,41 +130,41 @@ const DeviceTokensTable = ({ columns, deviceTokensRows = [], setDeviceTokensRows
                                             )}
                                         </td>
 
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {row.user.name || "-"}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {row.user.email || "-"}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {row.user.prefix || ""}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {row.user.points || "-"}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {row.user.wallet || "-"}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {row.notifications_channel_id || "-"}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {formatDate(row.user.email_verified_at) || "-"}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {row.notifications_channel_id || "-"}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {formatDate(row.last_used_at)}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {formatDate(row.created_at)}
                                         </td>
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             {formatDate(row.updated_at)}
                                         </td>
 
-                                        <td className="table-td border border-gray-200 dark:bg-gray-800 dark:border-gray-600 ">
+                                        <td className="table-td">
                                             <div className="flex items-center gap-2">
                                                 <Edit
                                                     onClick={() => handleNavigate(row)}
@@ -192,8 +190,6 @@ const DeviceTokensTable = ({ columns, deviceTokensRows = [], setDeviceTokensRows
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
         </>
     )
 }

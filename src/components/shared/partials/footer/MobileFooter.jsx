@@ -5,7 +5,7 @@ import Icon from "@/components/ui/Icon";
 import FooterAvatar from "@/assets/images/users/user-1.jpg";
 const MobileFooter = () => {
   return (
-    <div className="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-gray-700 flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 w-full z-[9999] bottom-0 py-[12px] px-4">
+    <div className="bg-white bg-no-repeat custom-dropshadow footer-bg dark:bg-[var(--surface-elevated)] flex justify-around items-center backdrop-filter backdrop-blur-[40px] fixed left-0 w-full z-[9999] bottom-0 py-[12px] px-4">
       <NavLink to="chat">
         {({ isActive }) => (
           <div>
@@ -31,7 +31,7 @@ const MobileFooter = () => {
       </NavLink>
       <NavLink
         to="profile"
-        className="relative bg-white bg-no-repeat backdrop-filter backdrop-blur-[40px] rounded-full footer-bg dark:bg-gray-700 h-[65px] w-[65px] z-[-1] -mt-[40px] flex justify-center items-center"
+        className="relative bg-white bg-no-repeat backdrop-filter backdrop-blur-[40px] rounded-full footer-bg dark:bg-[var(--surface-elevated)] h-[65px] w-[65px] z-[-1] -mt-[40px] flex justify-center items-center"
       >
         {({ isActive }) => (
           <div className="h-[50px] w-[50px] rounded-full relative left-[0px] top-[0px] custom-dropshadow">
