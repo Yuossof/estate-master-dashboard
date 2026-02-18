@@ -69,12 +69,14 @@ const Navmenu = ({ menus }) => {
             />
           )}
 
-          <Submenu
-            activeSubmenu={activeSubmenu}
-            item={item}
-            i={i}
-            locationName={locationName}
-          />
+          {item.child && (
+            <Submenu
+              activeSubmenu={activeSubmenu}
+              item={item}
+              i={i}
+              locationName={locationName}
+            />
+          )}
         </li>
       ))}
     </ul>
